@@ -13,8 +13,23 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 20f;
     private bool isFacingRight = true;
 
+    private void Start()
+    {
+        Debug.Log("Start!");
+        ShowHealth();
+    }
+
+    public void ShowHealth()
+    {
+        if (rb != null)
+        {
+            print(HealthSystem.health);
+        }
+
+    }
     void Update()
     {
+
         if (!isFacingRight && horizontal > 0f)
         {
             Flip();
@@ -26,12 +41,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    // Displays text on screen. An alternative to Debug.Log or print.
     void OnGUI()
     {
-    GUI.contentColor = Color.green;
+        GUI.contentColor = Color.green;
         GUI.backgroundColor = Color.black;
         GUI.skin.label.fontSize = 30;
-        GUI.Label(new Rect(50, 50, 350, 100), "Horizontal value is: " + horizontal.ToString());
+
+        GUI.Label(new Rect(50, 50, 350, 100), "Horizontal value is: " + horizontal.ToString()); // everything must be of string type
         GUI.Label(new Rect(50, 100, 350, 100), "Vertical value is: " + vertical.ToString());
     }
 
@@ -41,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = transform.position.y;
         vertical = Mathf.Ceil(vertical) * 1;
 
+
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -48,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            print("Jumped");
         }
 
         if (context.canceled && rb.velocity.y > 0f)
