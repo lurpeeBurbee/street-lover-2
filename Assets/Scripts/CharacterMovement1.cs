@@ -39,6 +39,7 @@ public class CharacterMovement1 : MonoBehaviour
         // ground-alue ja ollaanko siihen kosketuksissa. groundLayer = lattiaksi asetettu gameObject, jolle on m‰‰ritelty
         // Layeriksi groundLayer
         return Physics2D.OverlapCircle(groundCheck.position, 4f, groundLayer);
+
     }
     void OnGUI()
     {
@@ -47,8 +48,9 @@ public class CharacterMovement1 : MonoBehaviour
         GUI.skin.label.fontSize = 20;
 
         GUI.Label(new Rect(50, 20, 350, 100), "Leftmove value is: " + leftmove);
-        GUI.Label(new Rect(50, 100, 350, 100), "jumpForee value is: " + jumpForce);
-        GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: ");
+        // rightmove
+        GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: " ); // ollaanko ilmassa? Luo itse uusi muuttuja
+        GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: " + IsGrounded()); // ollaanko maassa?
 
     }
     void Update()

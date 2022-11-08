@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start!");
+        Debug.Log("Started Start()");
         ShowHealth();
     }
 
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (rb != null)
         {
-            print(HealthSystem.health);
+           // print(PlayerHealth.health);
         }
 
     }
@@ -49,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
         GUI.skin.label.fontSize = 30;
 
         GUI.Label(new Rect(50, 50, 350, 100), "Horizontal value is: " + horizontal.ToString()); // everything must be of string type
+        // right value
         GUI.Label(new Rect(50, 100, 350, 100), "Vertical value is: " + vertical.ToString());
+        // 
     }
 
     private void FixedUpdate()
