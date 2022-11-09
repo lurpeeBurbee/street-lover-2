@@ -1,21 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnotherTest : MonoBehaviour
 {
 
-    int HealthNumber;
+    int MaxHealthNumber;
+    int MinHealth;
+    int CurrentHealth;
+
+    int damage;
     int HealthPotion;
-    float HealthExtra;
-    string loppu = "Loppu";
+
+  
+
     void Start()
     {
-        HealthNumber = 100;
-        HealthPotion = 1;
-        HealthExtra = 0.02f;
+        MaxHealthNumber = 100;
+        MinHealth = 0;
+        CurrentHealth = MaxHealthNumber;
 
-       Debug.Log(HealthManager());
+        damage = 5;
+        HealthPotion = 10;
 
     }
 
@@ -24,20 +28,14 @@ public class AnotherTest : MonoBehaviour
         for (int number1 = 100; number1 >= -1; number1--)
         {
             Debug.Log(number1);
+   
         }
-
-        return 10000;
-       
-        // return number1 + number2;
-
+        return 0;
     }
-
 
     void Update()
     {
-
+        HealthManager();
     }
-
-
 }
 
