@@ -25,9 +25,12 @@ public class AnotherTest : MonoBehaviour
 
     int HealthManager()
     {
-        for (int number1 = 100; number1 >= -1; number1--)
+      //  for (CurrentHealth = MaxHealthNumber; CurrentHealth >= MinHealth; CurrentHealth--) 
+
+        if(CurrentHealth > MinHealth)
         {
-            Debug.Log(number1);
+
+            Debug.Log(CurrentHealth);
    
         }
         return 0;
