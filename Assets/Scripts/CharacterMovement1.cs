@@ -17,23 +17,23 @@ public class CharacterMovement1 : MonoBehaviour
 
     void Start()
     {
-        Looper(); // <-- Ilmoitetaan Start-funktiolle, että aja Looper läpi. Start tekee sen vain kerran, 
+      //  Looper(); // <-- Ilmoitetaan Start-funktiolle, että aja Looper läpi. Start tekee sen vain kerran, 
         // eikä looppaa ikuisesti, kuten Update-funktio. Raskas loop loopin sisällä voi kaataa koko pelin.
     }
 
 
     public void Looper()
     {
-        for (int i=0; i<100;i++)
+        for (int i = 0; i < 100; i++)
         {
-        //    Debug.Log(i);
+            //    Debug.Log(i);
         }
-       
+
 
     }
 
 
-   public bool IsGrounded()
+    public bool IsGrounded()
     {
         // groundCheck.position antaa groundCheckin sijainnin. 4f on ympyrämitta, kuinka laajalta alueelta tarkistetaan
         // ground-alue ja ollaanko siihen kosketuksissa. groundLayer = lattiaksi asetettu gameObject, jolle on määritelty
