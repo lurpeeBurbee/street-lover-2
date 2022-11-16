@@ -5,7 +5,7 @@ public class CharacterMovement1 : MonoBehaviour
     public float leftmove = 0.0f;
     public float rightmove = 0.0f;
     public float jump = 0.0f;
-    public float jumpForce = 9.0f;
+    public float jumpForce;
 
     public Rigidbody2D rb;
 
@@ -20,6 +20,7 @@ public class CharacterMovement1 : MonoBehaviour
     {
         //  Looper(); // <-- Ilmoitetaan Start-funktiolle, ett‰ aja Looper l‰pi. Start tekee sen vain kerran, 
         // eik‰ looppaa ikuisesti, kuten Update-funktio. Raskas loop loopin sis‰ll‰ voi kaataa koko pelin.
+        jumpForce = 0f;
     }
 
 
@@ -72,40 +73,43 @@ public class CharacterMovement1 : MonoBehaviour
         if (Input.GetKey("a"))
         {
             // move left:
-            leftmove = -0.01f;
+            //leftmove = -0.05f;
+            leftmove -= 0.0005f;
+
             // transform.position = new Vector3(leftmove, 0, 0);
 
-            transform.localScale = new Vector3(4f, 8f, 0);
+            // transform.localScale = new Vector3(4f, 8f, 0);
 
             transform.Translate(leftmove, 0, 0);
         }
         // move right:
         if (Input.GetKey("d"))
         {
-            rightmove = 0.01f;
-
-            transform.localScale = new Vector3(1f, 2f, 0);
+            // rightmove = 0.05f;
+            rightmove += 0.0005f;
+            //  transform.localScale = new Vector3(1f, 2f, 0);
 
             transform.Translate(rightmove, 0, 0);
         }
     }
     void JumpPlayer()
     {
-        if (transform.position.y > 15f) // tai laita IsGrounded() sis‰‰n
+        if (IsGrounded())
         {
-   
             // ei saa hypp‰‰ ilmassa
-
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-                Debug.Log("Jumps");
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-                //jump += 10f;
-                //transform.Translate(0, jump, 0);
-            }
-        }
+                //   rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+                jumpForce += 0.84f;
+                transform.Translate(0, jumpForce, 0);
+
+            }  // If input... etc. loppuu
+
+
+        }  // IsGrounded loppuu
 
     }
 
