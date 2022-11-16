@@ -89,33 +89,32 @@ public class CharacterMovement1 : MonoBehaviour
             transform.Translate(rightmove, 0, 0);
         }
     }
-
-    // Tee hyppyfunktio
-
-
-    void Update()
+    void JumpPlayer()
     {
-        // Jonkun niminen move-script esim. CharacterMove();
-        // isGrounded(); <-- for testing purposes, delete when jumping works
-        MovePlayer();
-        // jump:
-
-        // T‰h‰n hyppyfunktiosi esim. JumpPlayer();
-
-        //JumpPlayer();
-
-       // IsGrounded();
-
-        if (IsGrounded())
+        if (transform.position.y > 15f) // tai laita IsGrounded() sis‰‰n
         {
+   
+            // ei saa hypp‰‰ ilmassa
+
+
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
+                Debug.Log("Jumps");
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
                 //jump += 10f;
                 //transform.Translate(0, jump, 0);
             }
         }
+
+    }
+
+    void Update()
+    {
+        // Jonkun niminen move-script esim. CharacterMove();
+        // isGrounded(); <-- for testing purposes, delete when jumping works
+        MovePlayer();
+        JumpPlayer();
     }
 
 
