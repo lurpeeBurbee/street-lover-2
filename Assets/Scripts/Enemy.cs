@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float enemySpeed;
+
+    void enemyMovement()
     {
-        
+        enemySpeed += 0.0001f;
+        transform.Translate(enemySpeed, 0, 0);
     }
 
-    // Update is called once per frame
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Player")) {
+    //        Debug.Log("HIT!");
+    //    }
+    //}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("HIT!");
+    }
+
+    void Start()
+    {
+        enemySpeed= 0f;
+    }
+
     void Update()
     {
-        
+        enemyMovement();
     }
 }
