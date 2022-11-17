@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+
         enemySpeed= 0f;
         enemyPoints = 0;
     }

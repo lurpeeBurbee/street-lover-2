@@ -18,6 +18,7 @@ public class CharacterMovement1 : MonoBehaviour
 
     void Start()
     {
+
         //  Looper(); // <-- Ilmoitetaan Start-funktiolle, että aja Looper läpi. Start tekee sen vain kerran, 
         // eikä looppaa ikuisesti, kuten Update-funktio. Raskas loop loopin sisällä voi kaataa koko pelin.
         jumpForce = 0f;
@@ -45,18 +46,17 @@ public class CharacterMovement1 : MonoBehaviour
 
     }
 
-    void OnGUI()
-    {
-        GUI.contentColor = Color.green;
-        GUI.backgroundColor = Color.black;
-        GUI.skin.label.fontSize = 20;
+    //void OnGUI()
+    //{
+    //    GUI.contentColor = Color.green;
+    //    GUI.backgroundColor = Color.black;
+    //    GUI.skin.label.fontSize = 20;
 
-        GUI.Label(new Rect(50, 20, 350, 100), "Leftmove value is: " + leftmove);
-        // rightmove
-        GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: "); // ollaanko ilmassa? Luo itse uusi muuttuja
-        GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: " + IsGrounded()); // ollaanko maassa?
-
-    }
+    //    GUI.Label(new Rect(50, 20, 350, 100), "Leftmove value is: " + leftmove);
+    //    // rightmove
+    //   // GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: "); // ollaanko ilmassa? Luo itse uusi muuttuja
+    //   // GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: " + IsGrounded()); // ollaanko maassa?
+    //}
 
     // Tähän funktio, mikä liikuttaa pelaajaa. Aseta se Updateen.
     // Muista bracketit kiinni myös!
