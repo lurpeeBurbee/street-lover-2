@@ -1059,7 +1059,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0939ad7056799448b18fdd6ca5ef471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disappearingGameObject: {fileID: 646436068}
+  HealthBar4: {fileID: 1240971775}
+  HealthBar3: {fileID: 1278715269}
+  HealthBar2: {fileID: 509979782}
+  HealthBar1: {fileID: 1713087501}
+  HealthBarList: []
 --- !u!1 &729047047
 GameObject:
   m_ObjectHideFlags: 0

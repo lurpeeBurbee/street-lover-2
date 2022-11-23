@@ -14,24 +14,49 @@ public class HealthManager : MonoBehaviour
 
     [SerializeField]
     GameObject HealthBar4;
+    [SerializeField]
+    GameObject HealthBar3;
+    [SerializeField]
+    GameObject HealthBar2;
+    [SerializeField]
+    GameObject HealthBar1;
+
+    [SerializeField]
+    List<GameObject> HealthBarList;
+
 
     int numberOne=1;
     int numberTwo=2;
 
     string UpdateTest()
-    {    
-        Debug.Log("UpdateTest() works!");
+    {
+       // Debug.Log(HealthBarList[0]);
+
+       // Debug.Log("UpdateTest() works!");
         return "Text!";
     
     }
 
     int CalculateTwoNumbers(int firstNumber, string successText) { //<-- parametrit
 
-        Debug.Log(successText);
+        //Debug.Log(successText);
 
         return firstNumber;
 
         
+    }
+
+
+    void HealthBarManager()
+    {
+        if (playerHealth == 3)
+        {
+            HealthBar4.SetActive(false);
+        }
+        if (playerHealth == 2) 
+        {
+        HealthBar3.SetActive(false);
+        }
     }
 
    string GameOverText()
@@ -41,7 +66,6 @@ public class HealthManager : MonoBehaviour
             // text = "Game over";
             // sceneGameOver = "GameOver";
             gameOverText = "Game over";
-           HealthBar4.SetActive(false);
             // SceneManager.LoadScene(sceneGameOver);
         }
         return gameOverText;
@@ -71,6 +95,7 @@ public class HealthManager : MonoBehaviour
         {
 
             playerHealth--;
+            HealthBarManager();
             Debug.Log("PlayerHealt is " + playerHealth);
         }
 
