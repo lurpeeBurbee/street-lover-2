@@ -12,28 +12,39 @@ public class HealthManager : MonoBehaviour
 
     string gameOverText;
 
-
-
     [SerializeField]
-    GameObject disappearingGameObject;
+    GameObject HealthBar4;
+
+    int numberOne=1;
+    int numberTwo=2;
+
+    string UpdateTest()
+    {    
+        Debug.Log("UpdateTest() works!");
+        return "Text!";
+    
+    }
+
+    int CalculateTwoNumbers(int firstNumber, string successText) { //<-- parametrit
+
+        Debug.Log(successText);
+
+        return firstNumber;
+
+        
+    }
 
    string GameOverText()
     {
-
         if (playerHealth <= minHealth)
         {
             // text = "Game over";
             // sceneGameOver = "GameOver";
-
             gameOverText = "Game over";
-            disappearingGameObject.SetActive(false);
-
-
+           HealthBar4.SetActive(false);
             // SceneManager.LoadScene(sceneGameOver);
         }
-
-        return text;
-
+        return gameOverText;
     }
 
     void OnGUI()
@@ -44,6 +55,8 @@ public class HealthManager : MonoBehaviour
 
         GUI.Label(new Rect(50, 20, 350, 100), "PlayerHealth value is: " + playerHealth);
         GUI.Label(new Rect(50, 40, 350, 100), "" + gameOverText);
+        GUI.Label(new Rect(50, 60, 350, 100), "" + CalculateTwoNumbers(100, "Success!!!"));
+
         //GUI.Label(new Rect(50, 40, 350, 100), GameOverText());
         // rightmove
         // GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: "); // ollaanko ilmassa? Luo itse uusi muuttuja
@@ -71,9 +84,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        
         gameOverText = "";
-
         playerHealth= 4;
         minHealth = 0;
     }
@@ -83,5 +94,6 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
         GameOverText();
+        UpdateTest();
     }
 }
