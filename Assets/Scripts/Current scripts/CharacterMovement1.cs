@@ -7,8 +7,9 @@ public class CharacterMovement1 : MonoBehaviour
     public float jump = 0.0f;
     public float jumpForce;
 
-    public Rigidbody2D rb;
+    int private_numberi;
 
+    public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
 
@@ -27,7 +28,7 @@ public class CharacterMovement1 : MonoBehaviour
 
     public void Looper()
     {
-        for (int i = 0; i < 100; i++)
+        for (int i = 101; i > 100; i++)
         {
             //    Debug.Log(i);
         }
@@ -120,6 +121,9 @@ public class CharacterMovement1 : MonoBehaviour
         MovePlayer();
         JumpPlayer();
     }
-
+    void FixedUpdate()
+    {
+        
+    }
 
 }

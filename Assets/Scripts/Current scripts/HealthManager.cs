@@ -10,18 +10,24 @@ public class HealthManager : MonoBehaviour
     string text;
     string sceneGameOver;
 
+    string gameOverText;
+
+
+
     [SerializeField]
-    GameObject spikes;
+    GameObject disappearingGameObject;
 
    string GameOverText()
     {
 
         if (playerHealth <= minHealth)
         {
-           // text = "Game over";
-           // sceneGameOver = "GameOver";
+            // text = "Game over";
+            // sceneGameOver = "GameOver";
 
-            spikes.SetActive(false);
+            gameOverText = "Game over";
+            disappearingGameObject.SetActive(false);
+
 
             // SceneManager.LoadScene(sceneGameOver);
         }
@@ -37,7 +43,8 @@ public class HealthManager : MonoBehaviour
         GUI.skin.label.fontSize = 20;
 
         GUI.Label(new Rect(50, 20, 350, 100), "PlayerHealth value is: " + playerHealth);
-      //  GUI.Label(new Rect(50, 40, 350, 100), GameOverText());
+        GUI.Label(new Rect(50, 40, 350, 100), "" + gameOverText);
+        //GUI.Label(new Rect(50, 40, 350, 100), GameOverText());
         // rightmove
         // GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: "); // ollaanko ilmassa? Luo itse uusi muuttuja
         // GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: " + IsGrounded()); // ollaanko maassa?
@@ -54,9 +61,9 @@ public class HealthManager : MonoBehaviour
             Debug.Log("PlayerHealt is " + playerHealth);
         }
 
-        else
+     else
         {
-            //Debug.Log("Game over");
+
         }
 
     }
@@ -64,8 +71,8 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-
-
+        
+        gameOverText = "";
 
         playerHealth= 4;
         minHealth = 0;
