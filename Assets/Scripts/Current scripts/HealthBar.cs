@@ -5,25 +5,26 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
 
-    int HealthIndex = 0;
+    int HealthIndexGlobal = 100;
 
     [SerializeField]
     List<GameObject> HealthBarList;
-    void HealthBarManager()
+
+    void HealthBarManager(int AnyGlobalVariable)
     {
-        HealthIndex += 1;
+        AnyGlobalVariable /= 100; // Täysin sama kuin: AnyGlobalVariable = AnyGlobalVariable / 100
+        Debug.Log("AnyGlobalVariable: " + AnyGlobalVariable);
 
-          HealthBarList[HealthIndex].SetActive(false);
-        //Debug.Log(HealthBarList[i]);
-        
-
+        int HealthIndexLocal = 0;
+          HealthBarList[HealthIndexLocal].SetActive(false);
+          HealthIndexLocal += 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) 
         {
-            HealthBarManager();
+            HealthBarManager(100); //<-- ajetaan täällä
         }
     }
     void Start()

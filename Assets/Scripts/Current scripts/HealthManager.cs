@@ -86,7 +86,7 @@ public class HealthManager : MonoBehaviour
 
         GUI.Label(new Rect(50, 20, 350, 100), "PlayerHealth value is: " + playerHealth);
         GUI.Label(new Rect(50, 40, 350, 100), "" + gameOverText);
-        GUI.Label(new Rect(50, 60, 350, 100), "" + CalculateTwoNumbers(100, "Success!!!"));
+        GUI.Label(new Rect(50, 60, 350, 100), "" + CalculateTwoNumbers(100, ""));
 
         //GUI.Label(new Rect(50, 40, 350, 100), GameOverText());
         // rightmove
