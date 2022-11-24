@@ -6,28 +6,39 @@ public class HealthBar : MonoBehaviour
 {
 
    // int HealthIndexGlobal = 100;
-    int SuperPowerUp = 120;
+    float SuperPowerUp = 120f;
 
     [SerializeField]
     List<GameObject> HealthBarList;
 
-    void HealthBarManager(int AnyGlobalVariable)
+    int DamagePoint = 1;
+    int HealthIndexLocal = 0;
+
+
+    void ReduceHealth(int AnyGlobalVariable)
     {
-
-        AnyGlobalVariable /= 100; // Täysin sama kuin: AnyGlobalVariable = AnyGlobalVariable / 100
-        Debug.Log("AnyGlobalVariable: " + AnyGlobalVariable);
-
         //---- Manageroivat Healthbaria ainoastaan:
-        int HealthIndexLocal = 0;
           HealthBarList[HealthIndexLocal].SetActive(false);
-          HealthIndexLocal += 1;
+
+        if(HealthIndexLocal < 3) {
+          HealthIndexLocal += DamagePoint;
+        }
+    }
+
+    void GainHealth()
+    {
+        HealthBarList[HealthIndexLocal].SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy")) 
         {
-            HealthBarManager(SuperPowerUp); //<-- ajetaan täällä
+            ReduceHealth(DamagePoint); //<-- ajetaan täällä
+        }
+        if (collision.gameObject.CompareTag("PaleAleHealth"))
+        {
+            GainHealth(); //<-- ajetaan täällä
         }
     }
     void Start()

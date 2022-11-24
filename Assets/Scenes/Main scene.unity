@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 487674780}
   m_Layer: 8
   m_Name: Barrell
-  m_TagString: Untagged
+  m_TagString: PaleAleHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
