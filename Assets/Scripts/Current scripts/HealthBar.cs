@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
 
-   // int HealthIndexGlobal = 100;
+    // int HealthIndexGlobal = 100;
     float SuperPowerUp = 120f;
 
     [SerializeField]
@@ -20,34 +19,48 @@ public class HealthBar : MonoBehaviour
     void ReduceHealth(int AnyGlobalVariable)
     {
         //---- Manageroivat Healthbaria ainoastaan:
-          HealthBarList[HealthBarListIndex].SetActive(false);
+        HealthBarList[HealthBarListIndex].SetActive(false);
 
-        if(HealthBarListIndex < 3) {
-          HealthBarListIndex += DamagePoint;
+        if (HealthBarListIndex < 3)
+        {
+            HealthBarListIndex += DamagePoint;
         }
     }
 
-    void GainHealth()
+    void GainHealth(int AnyGlobalVariable)
     {
-        HealthBarList[HealthBarListIndex].SetActive(true);
 
         if (HealthBarListIndex > 0)
         {
-            HealthBarListIndex -= HealthPoint; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
+            HealthBarListIndex -= AnyGlobalVariable; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
         }
+
+        HealthBarList[HealthBarListIndex].SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")) 
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             ReduceHealth(DamagePoint); //<-- ajetaan täällä
         }
         if (collision.gameObject.CompareTag("PaleAleHealth"))
         {
-            Debug.Log("Gained health");
-            GainHealth(); //<-- ajetaan täällä
+            //Debug.Log("Index is: " + HealthBarListIndex);
+            GainHealth(HealthPoint); //<-- ajetaan täällä
         }
+        if (collision.gameObject.CompareTag("MegaHealthBarrell"))
+        {
+
+            for (int i = 0; i < 4; i++)
+            {
+                HealthBarList[i].SetActive(true);
+
+                // GainHealth(HealthPoint); //<-- ajetaan täällä
+            }
+        }
+
+
     }
     void Start()
     {
