@@ -52,12 +52,15 @@ public class HealthBar : MonoBehaviour
         if (collision.gameObject.CompareTag("MegaHealthBarrell"))
         {
 
-            for (int i = 0; i < 4; i++)
+            for (HealthBarListIndex = 0; HealthBarListIndex < 4; HealthBarListIndex++)
             {
-                HealthBarList[i].SetActive(true);
+                HealthBarList[HealthBarListIndex].SetActive(true);
 
                 // GainHealth(HealthPoint); //<-- ajetaan täällä
             }
+
+            HealthBarListIndex = 0; // <-- Nollataan indexi, jotta voidaan alkaa käsittelemään
+            // HealthBaria jatkossakin alusta, eli indexistä 0, mikä on siis viimeinen palkki.
         }
 
 

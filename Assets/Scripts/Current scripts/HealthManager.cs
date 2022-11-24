@@ -84,7 +84,7 @@ public class HealthManager : MonoBehaviour
         GUI.backgroundColor = Color.black;
         GUI.skin.label.fontSize = 20;
 
-        GUI.Label(new Rect(50, 20, 350, 100), "PlayerHealth value is: " + playerHealth);
+        GUI.Label(new Rect(50, 20, 350, 100), "PlayerHealth value is: " + playerHealth + "%");
         GUI.Label(new Rect(50, 40, 350, 100), "" + gameOverText);
         GUI.Label(new Rect(50, 60, 350, 100), "" + CalculateTwoNumbers(100, ""));
 
