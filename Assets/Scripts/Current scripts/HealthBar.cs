@@ -29,9 +29,9 @@ public class HealthBar : MonoBehaviour
 
     void GainHealth()
     {
-        HealthBarList[HealthIndexLocal].SetActive(false);
+        HealthBarList[HealthIndexLocal].SetActive(true);
 
-        if (HealthIndexLocal < 3)
+        if (HealthIndexLocal > 0)
         {
             HealthIndexLocal -= HealthPoint; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
         }
@@ -45,6 +45,7 @@ public class HealthBar : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PaleAleHealth"))
         {
+            Debug.Log("Gained health");
             GainHealth(); //<-- ajetaan täällä
         }
     }
