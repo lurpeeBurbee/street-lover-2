@@ -14,26 +14,26 @@ public class HealthBar : MonoBehaviour
     int DamagePoint = 1;
     int HealthPoint = 1;
 
-    int HealthIndexLocal = 0;
+    int HealthBarListIndex = 0;
 
 
     void ReduceHealth(int AnyGlobalVariable)
     {
         //---- Manageroivat Healthbaria ainoastaan:
-          HealthBarList[HealthIndexLocal].SetActive(false);
+          HealthBarList[HealthBarListIndex].SetActive(false);
 
-        if(HealthIndexLocal < 3) {
-          HealthIndexLocal += DamagePoint;
+        if(HealthBarListIndex < 3) {
+          HealthBarListIndex += DamagePoint;
         }
     }
 
     void GainHealth()
     {
-        HealthBarList[HealthIndexLocal].SetActive(true);
+        HealthBarList[HealthBarListIndex].SetActive(true);
 
-        if (HealthIndexLocal > 0)
+        if (HealthBarListIndex > 0)
         {
-            HealthIndexLocal -= HealthPoint; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
+            HealthBarListIndex -= HealthPoint; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
         }
     }
 
