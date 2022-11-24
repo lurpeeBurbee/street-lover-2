@@ -12,6 +12,8 @@ public class HealthBar : MonoBehaviour
     List<GameObject> HealthBarList;
 
     int DamagePoint = 1;
+    int HealthPoint = 1;
+
     int HealthIndexLocal = 0;
 
 
@@ -28,6 +30,11 @@ public class HealthBar : MonoBehaviour
     void GainHealth()
     {
         HealthBarList[HealthIndexLocal].SetActive(false);
+
+        if (HealthIndexLocal < 3)
+        {
+            HealthIndexLocal -= HealthPoint; // Edelleenkin sama kuin: HealthIndexLocal = HealthIndexLocal - 1
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
