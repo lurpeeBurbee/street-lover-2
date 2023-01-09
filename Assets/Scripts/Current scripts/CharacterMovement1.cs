@@ -7,11 +7,14 @@ public class CharacterMovement1 : MonoBehaviour
     public float jump = 0.0f;
     public float jumpForce;
 
+
+
     int private_numberi;
 
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public LayerMask barrell;
 
 
 
@@ -22,7 +25,7 @@ public class CharacterMovement1 : MonoBehaviour
 
         //  Looper(); // <-- Ilmoitetaan Start-funktiolle, että aja Looper läpi. Start tekee sen vain kerran, 
         // eikä looppaa ikuisesti, kuten Update-funktio. Raskas loop loopin sisällä voi kaataa koko pelin.
-        jumpForce = 0f;
+        jumpForce = 30f;
     }
 
 
@@ -46,6 +49,18 @@ public class CharacterMovement1 : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 4f, groundLayer);
 
     }
+    bool IsOnJumpableObject()
+    {
+        // groundCheck.position antaa groundCheckin sijainnin. 4f on ympyrämitta, kuinka laajalta alueelta tarkistetaan
+        // ground-alue ja ollaanko siihen kosketuksissa. groundLayer = lattiaksi asetettu gameObject, jolle on määritelty
+        // Layeriksi groundLayer
+
+        // tänne jotain toimintoa, kun painetaan Space. Kopioi valmis if tuolta alhaalta.
+
+        return Physics2D.OverlapCircle(groundCheck.position, 4f, barrell);
+
+    }
+
 
     //void OnGUI()
     //{
@@ -74,38 +89,38 @@ public class CharacterMovement1 : MonoBehaviour
         if (Input.GetKey("a"))
         {
             // move left:
-            //leftmove = -0.05f;
-            leftmove -= 0.0005f;
 
-            // transform.position = new Vector3(leftmove, 0, 0);
+            leftmove -= 0.0005f; // Vähennä arvoa joka framella Updatessa()
+            transform.localScale= new Vector3(-1, 1,1);
 
-            // transform.localScale = new Vector3(4f, 8f, 0);
+
+
 
             transform.Translate(leftmove, 0, 0);
         }
         // move right:
         if (Input.GetKey("d"))
         {
-            // rightmove = 0.05f;
-            rightmove += 0.0005f;
-            //  transform.localScale = new Vector3(1f, 2f, 0);
+   
+            rightmove += 0.0005f; // Kasvata arvoa joka framella Updatessa()
+            transform.localScale = new Vector3(1f, 1, 1);
 
             transform.Translate(rightmove, 0, 0);
         }
     }
     void JumpPlayer()
     {
-        if (IsGrounded())
+        if (IsGrounded() || IsOnJumpableObject())
         {
             // ei saa hyppää ilmassa
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
+               // jumpForce += 0.84f;
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-                //   rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
-                jumpForce += 0.84f;
-                transform.Translate(0, jumpForce, 0);
+                //  transform.Translate(0, jumpForce, 0);
 
             }  // If input... etc. loppuu
 
@@ -123,7 +138,7 @@ public class CharacterMovement1 : MonoBehaviour
     }
     void FixedUpdate()
     {
-        
+
     }
 
 }
