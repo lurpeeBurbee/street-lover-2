@@ -17,8 +17,8 @@ TagManager:
   - Ground
   - Background
   - Barrell
-  - 
-  - 
+  - Enemy
+  - jumpableObject
   - 
   - 
   - 

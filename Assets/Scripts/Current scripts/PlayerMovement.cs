@@ -1,41 +1,30 @@
 using UnityEngine;
 
-public class CharacterMovement1 : MonoBehaviour
+public class PlayerMovement :MonoBehaviour
 {
-    public float leftmove = 0.0f;
-    public float rightmove = 0.0f;
-    public float jump = 0.0f;
+    // Hidden in the inspector (Private variable). We don't need to see these, since we are only giving these a value by pressing a button.
+    float leftmove = 0.0f;
+    float rightmove = 0.0f;
+
+    public float moveSpeed;
+
     public float jumpForce;
-
-
-
-    int private_numberi;
 
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public LayerMask barrell;
+    public LayerMask jumpableObject;
 
-
-
-
+    //--- AUDIO
+    AudioSource jumpsound;
 
     void Start()
     {
-
-        //  Looper(); // <-- Ilmoitetaan Start-funktiolle, että aja Looper läpi. Start tekee sen vain kerran, 
-        // eikä looppaa ikuisesti, kuten Update-funktio. Raskas loop loopin sisällä voi kaataa koko pelin.
-        jumpForce = 30f;
+        moveSpeed= 0.3f;
+        jumpsound = GetComponent<AudioSource>();
     }
 
 
-    public void Looper()
-    {
-        for (int i = 101; i > 100; i++)
-        {
-            //    Debug.Log(i);
-        }
-    }
 
 
     bool IsGrounded()
@@ -57,54 +46,33 @@ public class CharacterMovement1 : MonoBehaviour
 
         // tänne jotain toimintoa, kun painetaan Space. Kopioi valmis if tuolta alhaalta.
 
-        return Physics2D.OverlapCircle(groundCheck.position, 4f, barrell);
+        return Physics2D.OverlapCircle(groundCheck.position, 4f, jumpableObject);
 
     }
 
 
-    //void OnGUI()
-    //{
-    //    GUI.contentColor = Color.green;
-    //    GUI.backgroundColor = Color.black;
-    //    GUI.skin.label.fontSize = 20;
 
-    //    GUI.Label(new Rect(50, 20, 350, 100), "Leftmove value is: " + leftmove);
-    //    // rightmove
-    //   // GUI.Label(new Rect(50, 100, 350, 100), "isInAir value is: "); // ollaanko ilmassa? Luo itse uusi muuttuja
-    //   // GUI.Label(new Rect(50, 120, 350, 100), "isGrounded value is: " + IsGrounded()); // ollaanko maassa?
-    //}
 
     // Tähän funktio, mikä liikuttaa pelaajaa. Aseta se Updateen.
-    // Muista bracketit kiinni myös!
-
-    // (funktion Type) + (Funktion nimi esim. AngelinanFunktio) + () <- sulkujen sisään tulee parametrit, nyt ei vielä tarvita.
-    // { <- bracket auki
-
-    // Kopioi if-ehdot tänne
-
-    // } < - bracket kiinni
+    // Muista laittaa bracketit kiinni
 
     void MovePlayer()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             // move left:
 
-            leftmove -= 0.0005f; // Vähennä arvoa joka framella Updatessa()
-            transform.localScale= new Vector3(-1, 1,1);
-
-
-
+            leftmove = -moveSpeed; 
+            transform.localScale= new Vector3(-1, 1,1); // kääntää Spriten toiseen suuntaan
 
             transform.Translate(leftmove, 0, 0);
         }
         // move right:
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
-   
-            rightmove += 0.0005f; // Kasvata arvoa joka framella Updatessa()
-            transform.localScale = new Vector3(1f, 1, 1);
 
+            rightmove = moveSpeed;
+            transform.localScale = new Vector3(1f, 1, 1);
             transform.Translate(rightmove, 0, 0);
         }
     }
@@ -116,13 +84,11 @@ public class CharacterMovement1 : MonoBehaviour
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-               // jumpForce += 0.84f;
+                jumpsound.Play();   
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
 
-                //  transform.Translate(0, jumpForce, 0);
-
-            }  // If input... etc. loppuu
+            } 
 
 
         }  // IsGrounded loppuu

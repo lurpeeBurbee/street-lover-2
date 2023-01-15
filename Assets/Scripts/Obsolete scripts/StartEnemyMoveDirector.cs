@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class StartEnemyMove : MonoBehaviour
+public class StartEnemyMoveDirector : MonoBehaviour
 {
     private PlayableDirector director;
     public GameObject controlPanel;
@@ -30,6 +30,6 @@ public class StartEnemyMove : MonoBehaviour
     public void StartTrain()
     {
         director.Play();
-        Debug.Log("Train start");
+
     }
 }
