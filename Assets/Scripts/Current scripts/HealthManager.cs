@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +6,12 @@ public class HealthManager : MonoBehaviour
     int playerHealth;
     int minHealth;
 
+    public AudioSource healthMinus;
 
     string gameOverText;
 
 
-   string GameOverText()
+    string GameOverText()
     {
         if (playerHealth <= minHealth)
         {
@@ -43,15 +42,15 @@ public class HealthManager : MonoBehaviour
     void OnCollisionEnter2D(Collision2D objekti)
     {
 
-        if (objekti.gameObject.CompareTag("Enemy") &&  playerHealth > minHealth ) // || <- jompikumpi, && kumpikin
+        if (objekti.gameObject.CompareTag("Enemy") && playerHealth > minHealth) // || <- jompikumpi, && kumpikin
         {
-
-            playerHealth--;
-          //  HealthBarManager();
+            healthMinus.Play();
+            playerHealth -= 25;
+            //  HealthBarManager();
             Debug.Log("PlayerHealt is " + playerHealth);
         }
 
-     else
+        else
         {
 
         }
@@ -61,8 +60,9 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
+        healthMinus = GetComponent<AudioSource>();
         gameOverText = "";
-        playerHealth= 4;
+        playerHealth = 100;
         minHealth = 0;
     }
 

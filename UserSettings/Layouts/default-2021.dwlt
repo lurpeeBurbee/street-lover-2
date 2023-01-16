@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 102
+  controlID: 80
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 103
+  controlID: 81
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 104
+  controlID: 82
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 89584
+  m_LastSelectedObjectID: 39714
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1044,22 +1044,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Audio
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Audio
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\Projects\Game projects\School games\street-lover-2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 56.99994}
-    m_SelectedIDs: a4730000
-    m_LastClickedID: 29604
-    m_ExpandedIDs: 000000007c7300007e7300008073000082730000847300008673000088730000a673000000ca9a3b
+    m_SelectedIDs: bc720000
+    m_LastClickedID: 29372
+    m_ExpandedIDs: 00000000927200009472000096720000987200009a7200009c7200009e72000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1087,7 +1087,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c7300007e7300008073000082730000847300008673000088730000
+    m_ExpandedIDs: 00000000927200009472000096720000987200009a7200009c7200009e720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1118,15 +1118,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300006e7100008a710000ded300008a980000ac80000034170000d4a30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MainScene
-      m_OriginalName: MainScene
+      m_Name: StartScreen
+      m_OriginalName: StartScreen
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29952
+      m_UserData: 29398
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1215,9 +1215,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b22c0100
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f8f4fbff8cfafbff28fffbff5c05fcff6407fcfff60cfcffda16fcffe017fcff9821fcff1864fcff7c6afcffce6bfcff4c6dfcffc088fcffd888fcff8689fcffd88afcff9a6cfdff18b9fdff02c7fdffdec9fdffdecffdff4e25ffff08fbfffff4ffffff2a700000307000008a7000008e70000004710000167100003a7100004271000050710000c0f5000006f8000086f80000e2f80000e8f8000020f9000014350100283501002e350100c0580100c65801007c5e0100825e0100ba640100c0640100
+      m_ExpandedIDs: 9ae3ffff80edffffbeeeffff70f7ffffe0faffffd29b0000d89b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1504,7 +1504,7 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1521,9 +1521,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 434.73294, y: 200.3554, z: -3.4145412}
+    m_Target: {x: -0.33486724, y: 26.651215, z: 1.5597001}
     speed: 2
-    m_Value: {x: 434.73294, y: 200.3554, z: -3.4145412}
+    m_Value: {x: -0.33486724, y: 26.651215, z: 1.5597001}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1574,9 +1574,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 471.9227
+    m_Target: 34.040604
     speed: 2
-    m_Value: 471.9227
+    m_Value: 34.040604
   m_Ortho:
     m_Target: 1
     speed: 2

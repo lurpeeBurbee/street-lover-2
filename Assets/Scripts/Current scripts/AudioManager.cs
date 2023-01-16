@@ -24,11 +24,12 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
         }
-        if (SceneManager.GetActiveScene().name == "MainScene") {
-                
 
+        if (SceneManager.GetActiveScene().name == "MainScene") {
+                   DontDestroyOnLoad(gameObject);
+            // Takes place only in the Main Scene
         } 
         
-   DontDestroyOnLoad(gameObject);
+
     }
 }

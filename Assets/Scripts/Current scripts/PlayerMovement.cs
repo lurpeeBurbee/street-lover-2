@@ -16,7 +16,7 @@ public class PlayerMovement :MonoBehaviour
     public LayerMask jumpableObject;
 
     //--- AUDIO
-    AudioSource jumpsound;
+    public AudioSource jumpsound;
 
     void Start()
     {
