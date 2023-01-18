@@ -20,7 +20,6 @@ public class PlayerMovement :MonoBehaviour
 
     void Start()
     {
-        moveSpeed= 0.3f;
         jumpsound = GetComponent<AudioSource>();
     }
 
