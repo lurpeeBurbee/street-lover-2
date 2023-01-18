@@ -16,11 +16,16 @@ public class PlayerMovement :MonoBehaviour
     public LayerMask jumpableObject;
 
     //--- AUDIO
-    public AudioSource jumpsound;
+    //public AudioSource jumpsound;
 
+
+    private void Awake()
+    {
+        //    jumpsound  = GetComponent<AudioSource>();
+    }
     void Start()
     {
-        jumpsound = GetComponent<AudioSource>();
+   
     }
 
 
@@ -71,7 +76,7 @@ public class PlayerMovement :MonoBehaviour
         {
 
             rightmove = moveSpeed;
-            transform.localScale = new Vector3(1f, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
             transform.Translate(rightmove, 0, 0);
         }
     }
@@ -83,7 +88,7 @@ public class PlayerMovement :MonoBehaviour
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-                jumpsound.Play();   
+              //  jumpsound.Play();   
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
 
