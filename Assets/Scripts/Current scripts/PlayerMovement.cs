@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement :MonoBehaviour
+public class PlayerMovement:MonoBehaviour
 {
     // Hidden in the inspector (Private variable). We don't need to see these, since we are only giving these a value by pressing a button.
     float leftmove = 0.0f;
