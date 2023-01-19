@@ -896,13 +896,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864864294, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864864294, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5655817161375649346, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655817161375649357, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655817161375649358, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_RootOrder
@@ -948,13 +952,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5655817161375649359, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
-      propertyPath: m_SortingOrder
+    - target: {fileID: 5655817162664469524, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9113888534715564928, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
-      propertyPath: triggerName
-      value: Door
+    - target: {fileID: 7217887356831286502, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
