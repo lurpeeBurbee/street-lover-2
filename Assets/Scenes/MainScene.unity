@@ -5791,11 +5791,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 646436068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04cb4fc96f703054582c176649a62b37, type: 3}
+  m_Script: {fileID: 11500000, guid: d5c81c4b23227ce49ace48c27de1b507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  jumpForce: 30
+  jumpForce: 0
   rb: {fileID: 646436073}
   groundCheck: {fileID: 646436071}
   groundLayer:
@@ -5804,7 +5804,6 @@ MonoBehaviour:
   jumpableObject:
     serializedVersion: 2
     m_Bits: 1024
-  jumpsound: {fileID: 0}
 --- !u!50 &646436073
 Rigidbody2D:
   serializedVersion: 4
@@ -8576,17 +8575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cb4fc96f703054582c176649a62b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpForce: 9
-  rb: {fileID: 0}
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpableObject:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpsound: {fileID: 0}
 --- !u!1 &1996027521
 GameObject:
   m_ObjectHideFlags: 0
