@@ -16,12 +16,12 @@ public class PlayerMovement:MonoBehaviour
     public LayerMask jumpableObject;
 
     //--- AUDIO
-    //public AudioSource jumpsound;
+  //  public AudioSource jumpsound;
 
 
     private void Awake()
     {
-        //    jumpsound  = GetComponent<AudioSource>();
+      //  jumpsound  = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -88,7 +88,7 @@ public class PlayerMovement:MonoBehaviour
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-              //  jumpsound.Play();   
+             // jumpsound.Play();   
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
 
