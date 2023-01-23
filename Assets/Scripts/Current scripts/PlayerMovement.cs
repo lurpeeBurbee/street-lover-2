@@ -89,7 +89,8 @@ public class PlayerMovement:MonoBehaviour
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-              jumpsound.PlayOneShot(jumpClip, 0.8f);
+              jumpsound.PlayOneShot(jumpClip);
+
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
 
