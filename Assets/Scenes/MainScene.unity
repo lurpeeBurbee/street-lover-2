@@ -5794,8 +5794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c81c4b23227ce49ace48c27de1b507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpForce: 0
+  moveSpeed: 0.96
+  jumpForce: 20
   rb: {fileID: 646436073}
   groundCheck: {fileID: 646436071}
   groundLayer:
@@ -7555,9 +7555,12 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: -7862495364621667611, guid: c366bdb783d341d4590fee579904cb44, type: 2}
+    value: {fileID: 712885316}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - aa7f15643f716544b943448fa97ff9b5: {fileID: 712885314}
 --- !u!1 &1569648343
 GameObject:
   m_ObjectHideFlags: 0
