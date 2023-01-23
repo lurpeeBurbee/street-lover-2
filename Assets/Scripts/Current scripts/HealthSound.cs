@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class HealthSound : MonoBehaviour
 {
@@ -9,15 +12,9 @@ public class HealthSound : MonoBehaviour
     {
         if (player.gameObject.CompareTag("Player"))
         {
-           healthaudio.PlayOneShot(healthClip, 0.6f);  
+            healthaudio.PlayOneShot(healthClip, 0.6f);
+           gameObject.SetActive(false);
         }
     }
 
-
-
-
-    void Update()
-    {
-
-    }
 }

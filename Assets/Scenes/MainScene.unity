@@ -326,7 +326,6 @@ GameObject:
   - component: {fileID: 204398156}
   - component: {fileID: 204398158}
   - component: {fileID: 204398159}
-  - component: {fileID: 204398160}
   m_Layer: 0
   m_Name: Health object
   m_TagString: Untagged
@@ -448,20 +447,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79685104, y: 0.8669585}
   m_EdgeRadius: 0
---- !u!114 &204398160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204398155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e6b291b75d9784db8b44ad2f31b2bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthaudio: {fileID: 640659012}
-  healthClip: {fileID: 8300000, guid: 254abe11d342a3944942c402e7392fc7, type: 3}
 --- !u!1 &332750501
 GameObject:
   m_ObjectHideFlags: 0
