@@ -20,7 +20,7 @@ public class Fireball : MonoBehaviour
        GameObject firedBall = Instantiate(Fireblastball, FireStartPosition.position, Quaternion.identity);
        Rigidbody2D firedBallRB = Fireblastball.GetComponent<Rigidbody2D>();
 
-        firedBallRB.velocity = new Vector2(30, 0);   
+        firedBallRB.velocity += new Vector2(1, 0);   
         Destroy(Fireblastball, 1f);
 
     }

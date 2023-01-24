@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &615174396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -414,6 +414,24 @@ Transform:
   m_Father: {fileID: 628103079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1331308276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5655817162664469524, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+  m_PrefabInstance: {fileID: 5655817161873815095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331308280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331308276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e9ab88319fb5344854f966b71bfb19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5.61
 --- !u!1 &1373090673
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1864864294, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5655817161375649346, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_Name
