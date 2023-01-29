@@ -194,6 +194,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5655817162664469524, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592276184675183584, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7641264050239056214, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: scene
       value: Level_1

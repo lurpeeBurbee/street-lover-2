@@ -299,8 +299,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1278768142}
+  - {fileID: 1821984225}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &763238551
 PrefabInstance:
@@ -645,7 +646,7 @@ GameObject:
   - component: {fileID: 1821984225}
   - component: {fileID: 1821984226}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Enemy active
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -658,13 +659,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821984223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.103972, y: 12.226396, z: -0.12580578}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 628103079}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1821984226
 AudioSource:
@@ -914,6 +915,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1285696395, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1864864294, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -972,11 +977,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655817162664469524, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7217887356831286502, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592276184675183584, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9389b18c89bfb45970accd16ddf4da, type: 3}
@@ -1001,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6835222519240763085, guid: 4da3ce97ff644cf49818add5f30a5b6c, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6835222519240763085, guid: 4da3ce97ff644cf49818add5f30a5b6c, type: 3}
       propertyPath: m_LocalPosition.x
