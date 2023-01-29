@@ -12,15 +12,16 @@ public class RollingPlayerMove : MonoBehaviour
     float rightRotation;
     public float rotationSpeed;
     public GameObject rotatingFace;
+
     void MovePlayer()
     {
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             // move left:
 
-            leftmove = -moveSpeed * Time.deltaTime;
+           leftmove = -moveSpeed * Time.deltaTime;
            leftRotation = rotationSpeed * Time.deltaTime;   
-            transform.Translate(leftmove, 0, 0);
+           transform.Translate(leftmove, 0, 0);
           rotatingFace.transform.Rotate(0, 0, leftRotation);
         }
         // move right:
