@@ -10,14 +10,14 @@ public class Trigger : MonoBehaviour
     public string scene;
     public string triggerName;
 
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag(triggerName))
 
         {
             SceneManager.LoadScene(scene);
-            Debug.Log("Loading");
+
         }
     }
 }

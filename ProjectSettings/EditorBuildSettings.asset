@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Teacher's scenes/Level_3_sewers.unity
     guid: 4914a11d50500c14494539e24a2b35e0
+  - enabled: 1
+    path: Assets/Scenes/Teacher's scenes/Level-1.5.unity
+    guid: 600879cb0399cd34b87b161cfb1ea6fc
   m_configObjects: {}

@@ -13,8 +13,13 @@ public class RollingPlayerMove : MonoBehaviour
     public float rotationSpeed;
     public GameObject rotatingFace;
 
+    public void PrintGameOver()
+    {
+        Debug.Log("Game Over");
+    }
     void MovePlayer()
     {
+
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             // move left:
