@@ -10,15 +10,19 @@ public class StreetLover : MonoBehaviour
 
     int PlayerHealth;
     int MinHealth;
-
     float RunSpeed;
     bool IsOnAir;
 
+   bool IsOnAirChecker()
+    {
+        return IsOnAir;
+
+    }
+
     void HealthManager()
     {
-
         if (PlayerHealth > MinHealth) // TRUE
-        { // Funktio alkaa
+        {
             PlayerHealth -= 1;
             Debug.Log(PlayerHealth);
         }
@@ -27,6 +31,7 @@ public class StreetLover : MonoBehaviour
             Debug.Log("Game over");
             PlayerHealth -= 1;
         }
+
 
     } // -Funktio loppuu
 
@@ -38,11 +43,12 @@ public class StreetLover : MonoBehaviour
         RunSpeed = 2;
         IsOnAir = false;
 
+
     }
     void Update()
     {
-
-     
+        HealthManager();
+        Debug.Log(IsOnAirChecker());
 
 
 
