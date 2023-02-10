@@ -50,6 +50,7 @@ public class HealthManager : MonoBehaviour
             Debug.Log("PlayerHealt is " + playerHealth);
         }
 
+
         else
         {
 

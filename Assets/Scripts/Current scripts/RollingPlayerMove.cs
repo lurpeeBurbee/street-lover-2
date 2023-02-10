@@ -12,7 +12,19 @@ public class RollingPlayerMove : MonoBehaviour
     float rightRotation;
     public float rotationSpeed;
     public GameObject rotatingFace;
+    public Rigidbody2D rb;
+    public float jumpForce; 
+    void Jump()
+    {
+        if (Input.GetKeyDown("space")) // tai KeyCode.Space
+        {
 
+
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+
+        }
+    }
     void MovePlayer()
     {
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
@@ -21,7 +33,7 @@ public class RollingPlayerMove : MonoBehaviour
 
            leftmove = -moveSpeed * Time.deltaTime;
            leftRotation = rotationSpeed * Time.deltaTime;   
-           transform.Translate(leftmove, 0, 0);
+           transform.Translate(leftmove, 0, 0, Space.World); // Only on Left
           rotatingFace.transform.Rotate(0, 0, leftRotation);
         }
         // move right:
@@ -42,6 +54,7 @@ public class RollingPlayerMove : MonoBehaviour
 
     void Update()
     {
+        Jump();
         MovePlayer();
     }
 }
