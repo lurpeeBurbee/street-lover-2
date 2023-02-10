@@ -26,7 +26,7 @@ public class PlayerMovement:MonoBehaviour
     }
     void Start()
     {
-   
+      //  DontDestroyOnLoad(gameObject);
     }
 
 
