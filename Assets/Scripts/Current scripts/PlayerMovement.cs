@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement:MonoBehaviour
 {
@@ -30,8 +31,6 @@ public class PlayerMovement:MonoBehaviour
     }
 
 
-
-
     bool IsGrounded()
     {
         // groundCheck.position antaa groundCheckin sijainnin. 4f on ympyr‰mitta, kuinka laajalta alueelta tarkistetaan
@@ -55,9 +54,6 @@ public class PlayerMovement:MonoBehaviour
 
     }
 
-
-
-
     // T‰h‰n funktio, mik‰ liikuttaa pelaajaa. Aseta se Updateen.
     // Muista laittaa bracketit kiinni
 
@@ -68,8 +64,9 @@ public class PlayerMovement:MonoBehaviour
             // move left:
 
             leftmove = -moveSpeed; 
-            transform.localScale= new Vector3(-1, 1,1); // k‰‰nt‰‰ Spriten toiseen suuntaan
 
+            transform.localScale = new Vector3(-1, 1, 1); // k‰‰nt‰‰ Spriten toiseen suuntaan
+ 
             transform.Translate(leftmove, 0, 0);
         }
         // move right:

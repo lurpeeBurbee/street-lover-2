@@ -714,6 +714,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -6123319871918529489, guid: 5080a8f5228020b4e8d67a6134854d24, type: 2}
     value: {fileID: 353084377}
+  - key: {fileID: -6263801335141762681, guid: 5080a8f5228020b4e8d67a6134854d24, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1134984057
@@ -852,6 +854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812679325}
   - component: {fileID: 1812679324}
+  - component: {fileID: 1812679326}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -866,7 +869,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812679323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02c38f6318f9f3041b3d101a99a07fef, type: 3}
   m_Name: 
@@ -886,6 +889,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812679326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812679323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b6c0cb63d328e4b9e50d83db10a66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2140876870
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +916,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!212 &2140876871
 SpriteRenderer:
@@ -994,12 +1009,20 @@ PrefabInstance:
       value: PlayerNinja
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575697, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96461090720575697, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575724, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96461090720575724, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: moveSpeed
-      value: 9
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575726, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: m_Color.b
@@ -1039,11 +1062,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575727, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.33
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575727, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.75
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 96461090720575727, guid: 5097b1e4dcce7144fb895e70b5171b02, type: 3}
       propertyPath: m_LocalPosition.z
