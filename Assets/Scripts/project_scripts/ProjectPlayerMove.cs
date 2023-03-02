@@ -54,7 +54,7 @@ public class ProjectPlayerMove : MonoBehaviour
     }
 
     bool IsGrounded() {
-        return Physics2D.OverlapCircle(groundCheck.position, 4f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
     }
 
     void Start()
