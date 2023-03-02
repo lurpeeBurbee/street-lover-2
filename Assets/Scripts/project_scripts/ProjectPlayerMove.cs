@@ -34,6 +34,7 @@ public class ProjectPlayerMove : MonoBehaviour
         {
 
             if(rightMove <= 0.1f) {
+
             rightMove += moveSpeed;
             transform.localScale = new Vector3(1, 1, 1);
       
