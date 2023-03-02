@@ -73,7 +73,7 @@ public class PlayerMovement:MonoBehaviour
         if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
 
-            rightmove = moveSpeed;
+            rightmove += moveSpeed;
             transform.localScale = new Vector3(1, 1, 1);
             transform.Translate(rightmove, 0, 0);
         }
