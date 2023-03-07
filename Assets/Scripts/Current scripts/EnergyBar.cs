@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnergyBar : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class EnergyBar : MonoBehaviour
         {
             energyBar.fillAmount -= 0.2f;
             // Sama kuin energyBar.fillAmount = energyBar.fillAmount (viimeisin arvo) jaettuna neljällä.
+
+            if (energyBar.fillAmount <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
         }
         if (collision.CompareTag("PaleAleHealth"))
         {
