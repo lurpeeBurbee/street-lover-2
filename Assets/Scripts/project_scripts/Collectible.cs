@@ -16,9 +16,9 @@ public class Collectible : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            itemsound.PlayOneShot(itemClip);
-            rend.enabled = false;
-           // gameObject.SetActive(false);
+          //  itemsound.PlayOneShot(itemClip);
+           // rend.enabled = false;
+           gameObject.SetActive(false);
         }
     }
 

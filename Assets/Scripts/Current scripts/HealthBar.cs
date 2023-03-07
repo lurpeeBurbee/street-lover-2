@@ -46,7 +46,7 @@ public class HealthBar : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("PaleAleHealth"))
         {
-            //Debug.Log("Index is: " + HealthBarListIndex);
+
             GainHealth(HealthPoint); //<-- ajetaan täällä
         }
         if (collision.gameObject.CompareTag("MegaHealthBarrell"))
@@ -65,13 +65,5 @@ public class HealthBar : MonoBehaviour
 
 
     }
-    void Start()
-    {
 
-    }
-
-    void Update()
-    {
-
-    }
 }
