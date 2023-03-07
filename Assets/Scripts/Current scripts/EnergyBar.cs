@@ -9,6 +9,20 @@ public class EnergyBar : MonoBehaviour
     public bool TimeReducer;
     public float waitTime = 20f;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy"))
+        {
+            energyBar.fillAmount -= 0.2f;
+            // Sama kuin energyBar.fillAmount = energyBar.fillAmount (viimeisin arvo) jaettuna neljällä.
+        }
+        if (collision.CompareTag("PaleAleHealth"))
+        {
+            energyBar.fillAmount += 0.2f;
+     }
+
+    }
+
     void Update()
     {
         if(TimeReducer)

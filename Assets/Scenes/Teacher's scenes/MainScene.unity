@@ -5717,7 +5717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &509979783
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6127,6 +6127,7 @@ GameObject:
   - component: {fileID: 646436078}
   - component: {fileID: 646436080}
   - component: {fileID: 646436081}
+  - component: {fileID: 646436082}
   m_Layer: 0
   m_Name: ------Player
   m_TagString: Player
@@ -6423,6 +6424,21 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &646436082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646436068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bd9f27d5fbc6449971082c1557332c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 772049264}
+  TimeReducer: 0
+  waitTime: 5
 --- !u!1 &653515327
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,7 +7059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1029.7, y: -422.2}
+  m_AnchoredPosition: {x: -1031, y: -426}
   m_SizeDelta: {x: 100, y: 8.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772049264
@@ -7059,14 +7075,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.119199276, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6dff1240446e9944295a6a6fa373946a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d23a85301948c174ba9d6d782e04f395, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7605,7 +7621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235715552}
   m_LocalRotation: {x: -0, y: -0, z: 0.7088763, w: -0.7053328}
-  m_LocalPosition: {x: -17.9, y: -2.74, z: -0.29791814}
+  m_LocalPosition: {x: -4.2, y: -2.74, z: -0.29791814}
   m_LocalScale: {x: 1.9882135, y: 8.485744, z: 3.23}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7707,7 +7723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1240971776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7783,7 +7799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1278715270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8524,7 +8540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1713087502
 RectTransform:
   m_ObjectHideFlags: 0
