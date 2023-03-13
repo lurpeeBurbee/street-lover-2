@@ -15,7 +15,7 @@ public class EnergyBar : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             energyBar.fillAmount -= 0.2f;
-            // Sama kuin energyBar.fillAmount = energyBar.fillAmount (viimeisin arvo) jaettuna neljällä.
+            // Sama kuin energyBar.fillAmount = energyBar.fillAmount (viimeisin arvo) vähennettynä 0.2:lla.
 
             if (energyBar.fillAmount <= 0)
             {
@@ -32,7 +32,7 @@ public class EnergyBar : MonoBehaviour
 
     void Update()
     {
-        if(TimeReducer)
+        if(TimeReducer) // Lähtee tiputtamaan energyBarin arvoa
         {
             energyBar.fillAmount -= 1.0f /waitTime * Time.deltaTime;  
         }

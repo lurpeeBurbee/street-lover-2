@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectPlayerMove : MonoBehaviour
@@ -7,6 +5,7 @@ public class ProjectPlayerMove : MonoBehaviour
     public float moveSpeed = 0.1f;
     public float leftMove = 0f;
     public float rightMove = 0f;
+    public float MoveConstraint;
     public float jumpForce;
 
     public Rigidbody2D rb;
@@ -20,27 +19,27 @@ public class ProjectPlayerMove : MonoBehaviour
     {
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
+            transform.localScale = new Vector3(-5, 5, 5); // k‰‰nt‰‰ Spriten toiseen suuntaan
             // move left:
-            if (leftMove >= -0.1f)
+            if (leftMove >= -MoveConstraint)
             {
                 leftMove -= moveSpeed * Time.deltaTime;
-            //    transform.localScale = new Vector3(1, 1, 1); // k‰‰nt‰‰ Spriten toiseen suuntaan
-            }   
-            
+
+            }
+
             transform.Translate(leftMove, 0, 0);
-            
+
         }
 
         // move right:
         if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
+            transform.localScale = new Vector3(5, 5, 5);
 
-            if(rightMove <= 0.1f) {
-
-            rightMove += moveSpeed;
-          //  transform.localScale = new Vector3(1, 1, 1);
-      
-        }      
+            if (rightMove <= MoveConstraint)
+            {
+                rightMove += moveSpeed * Time.deltaTime;
+            }
             transform.Translate(rightMove, 0, 0);
 
         }
@@ -56,7 +55,8 @@ public class ProjectPlayerMove : MonoBehaviour
         }
     }
 
-    bool IsGrounded() {
+    bool IsGrounded()
+    {
         return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
     }
 
@@ -68,6 +68,6 @@ public class ProjectPlayerMove : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        JumpPlayer();   
+        JumpPlayer();
     }
 }
