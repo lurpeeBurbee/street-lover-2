@@ -10080,7 +10080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb1987db2d8b95478216298998a80b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMoveSpeed: 8
+  EnemyMoveSpeed: 10
   EnemyIsMovingRight: 0
   EnemyIsMovingLeft: 0
   enemyWaitSeconds: 2

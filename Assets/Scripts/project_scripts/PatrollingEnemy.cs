@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrollingEnemy : MonoBehaviour
@@ -18,19 +17,22 @@ public class PatrollingEnemy : MonoBehaviour
         {
             yield return new WaitForSeconds(enemyWaitSeconds);
             Debug.Log("Enemy has waited " + enemyWaitSeconds);
+            EnemyIsMovingLeft = true;
         }
     }
 
     void Start()
     {
-        EnemyIsMovingRight = true;   
+        EnemyIsMovingRight = true;
+        EnemyIsMovingLeft = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Wall"))
+        if (collision.CompareTag("Wall"))
         {
             EnemyIsMovingRight = false;
             StartCoroutine(EnemyWaiting());
+
         }
     }
 
@@ -40,7 +42,11 @@ public class PatrollingEnemy : MonoBehaviour
         {
             EnemyMoveValue += EnemyMoveSpeed * Time.deltaTime;
         }
-       
+        if (EnemyIsMovingLeft)
+        {
+            EnemyMoveValue -= EnemyMoveSpeed * Time.deltaTime;
+        }
+
         transform.position = new Vector2(EnemyMoveValue, transform.position.y);
     }
 }
