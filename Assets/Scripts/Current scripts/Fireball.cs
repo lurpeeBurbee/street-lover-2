@@ -18,16 +18,17 @@ public class Fireball : MonoBehaviour
         //Fireblastball.transform.position = FireStartPosition.position;
 
        GameObject firedBall = Instantiate(Fireblastball, FireStartPosition.position, Quaternion.identity);
-      Rigidbody2D firedBallRB = Fireblastball.GetComponent<Rigidbody2D>();
+        firedBall.SetActive(true);
+      //Rigidbody2D firedBallRB = Fireblastball.GetComponent<Rigidbody2D>();
 
-        firedBallRB.velocity += new Vector2(1, 0);   
-        Destroy(Fireblastball, 2f);
+      //  firedBallRB.velocity += new Vector2(1, 0);   
+      //  Destroy(Fireblastball, 2f);
         
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
             FireBlast();
         }
