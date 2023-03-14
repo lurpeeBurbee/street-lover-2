@@ -13,8 +13,6 @@ public class ProjectPlayerMove : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
 
-
-
     void MovePlayer()
     {
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))

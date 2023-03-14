@@ -30,8 +30,10 @@ public class EnergyBar : MonoBehaviour
 
     }
 
+
     void Update()
     {
+
         if(TimeReducer) // Lähtee tiputtamaan energyBarin arvoa
         {
             energyBar.fillAmount -= 1.0f /waitTime * Time.deltaTime;  
