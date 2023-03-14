@@ -8339,7 +8339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1443190788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10080,8 +10080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb1987db2d8b95478216298998a80b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMoveSpeed: 5
-  EnemyIsMoving: 0
+  EnemyMoveSpeed: 8
+  EnemyIsMovingRight: 0
+  EnemyIsMovingLeft: 0
+  enemyWaitSeconds: 2
 --- !u!50 &2049449077
 Rigidbody2D:
   serializedVersion: 4

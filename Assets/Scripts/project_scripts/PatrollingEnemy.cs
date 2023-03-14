@@ -7,23 +7,36 @@ public class PatrollingEnemy : MonoBehaviour
 
     float EnemyMoveValue;
     public float EnemyMoveSpeed;
-    public bool EnemyIsMoving;
+    public bool EnemyIsMovingRight;
+    public bool EnemyIsMovingLeft;
+
+    public int enemyWaitSeconds;
+
+    IEnumerator EnemyWaiting()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(enemyWaitSeconds);
+            Debug.Log("Enemy has waited " + enemyWaitSeconds);
+        }
+    }
 
     void Start()
     {
-        EnemyIsMoving = true;   
+        EnemyIsMovingRight = true;   
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Wall"))
         {
-            EnemyIsMoving = false;
+            EnemyIsMovingRight = false;
+            StartCoroutine(EnemyWaiting());
         }
     }
 
     void Update()
     {
-        if (EnemyIsMoving)
+        if (EnemyIsMovingRight)
         {
             EnemyMoveValue += EnemyMoveSpeed * Time.deltaTime;
         }
