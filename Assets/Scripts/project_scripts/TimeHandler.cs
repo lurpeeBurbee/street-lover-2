@@ -13,7 +13,7 @@ public class TimeHandler : MonoBehaviour
             coroutineNumber++;
             yield return new WaitForSeconds(seconds);
 
-            transform.position = new Vector2(seconds, 0);
+            transform.position = new Vector2(coroutineNumber/10, transform.position.y);
 
             Debug.Log("coroutineNumber is " +  coroutineNumber);
         }

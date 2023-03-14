@@ -9,6 +9,8 @@ TagManager:
   - MegaHealthBarrell
   - Well
   - Door
+  - Trigger
+  - Wall
   layers:
   - Default
   - TransparentFX
