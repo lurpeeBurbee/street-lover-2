@@ -8,6 +8,8 @@ public class ProjectPlayerMove : MonoBehaviour
     public float MoveConstraint;
     public float jumpForce;
 
+    public static bool PlayerOrientationIsLeft;
+
     public Rigidbody2D rb;
 
     public Transform groundCheck;
@@ -17,6 +19,7 @@ public class ProjectPlayerMove : MonoBehaviour
     {
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
+            PlayerOrientationIsLeft = true; 
             transform.localScale = new Vector3(-5, 5, 5); // kääntää Spriten toiseen suuntaan
             // move left:
             if (leftMove >= -MoveConstraint)

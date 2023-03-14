@@ -18,12 +18,16 @@ public class AmmoMove : MonoBehaviour
     }
     private void Start()
     {
+        
         StartCoroutine(AmmoLifeSpan());
+        
     }
 
     void Update()
     {
-        ammoMove += 1;
-        transform.position = new Vector2 (transform.position.x + ammoMove * Time.deltaTime, transform.position.y);
+
+            ammoMove -= 1;
+            transform.position = new Vector2(transform.position.x - ammoMove * Time.deltaTime, transform.position.y);
+        
     }
 }

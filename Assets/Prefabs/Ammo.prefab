@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoMove: 0
   ammoSpeed: 0
+  playerOrientation: {fileID: 1117670616620306006, guid: 81f6faa405d328c488b0568df01e7ad3, type: 3}
 --- !u!198 &-5400196241422394633
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ ParticleSystem:
   m_GameObject: {fileID: 7078177128568953370}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 5.31
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -676,7 +677,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2.96
       minScalar: 0
       maxCurve:
         serializedVersion: 2
