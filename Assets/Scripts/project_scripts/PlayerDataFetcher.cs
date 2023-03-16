@@ -9,7 +9,7 @@ public class PlayerDataFetcher : MonoBehaviour
     {
         
         fetchedEnemyName = enemy.GetComponent<EnemyData>().EnemyName;
-        Debug.Log(fetchedEnemyName);
+       // Debug.Log(fetchedEnemyName);
     }
 
     void Update()
