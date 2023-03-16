@@ -10171,7 +10171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb1987db2d8b95478216298998a80b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMoveSpeed: 10
+  EnemyMoveSpeed: 20
   EnemyIsMovingRight: 0
   EnemyIsMovingLeft: 0
   enemyWaitSeconds: 2
@@ -10221,6 +10221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b89e689afd5f40b0a84dc37a45ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  materialRenderer: {fileID: 2049449074}
+  colorChangeSpeed: 9
+  enemyIsHit: 0
 --- !u!1 &2072433455
 GameObject:
   m_ObjectHideFlags: 0

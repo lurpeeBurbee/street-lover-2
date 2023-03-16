@@ -16,7 +16,6 @@ public class PatrollingEnemy : MonoBehaviour
     {
         while (true)
         {
-
             yield return new WaitForSeconds(enemyWaitSeconds);
             Debug.Log("Enemy has waited on right" + enemyWaitSeconds);
             EnemyIsMovingLeft = true;
@@ -51,13 +50,14 @@ public class PatrollingEnemy : MonoBehaviour
                 EnemyIsMovingLeft = false;
                 StartCoroutine(EnemyWaitingOnLeft());
             }
-
-
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        StopAllCoroutines();
+        if (collision.CompareTag("Wall"))
+        {
+            StopAllCoroutines();
+        }
     }
 
     void Update()
