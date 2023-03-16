@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Trigger
   - Wall
+  - MeleeWeapon
   layers:
   - Default
   - TransparentFX
