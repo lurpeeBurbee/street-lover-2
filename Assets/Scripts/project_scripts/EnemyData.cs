@@ -4,17 +4,5 @@ using UnityEngine;
 
 public class EnemyData : MonoBehaviour
 {
-
     public string EnemyName = "Eminem the enemy";
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
 }
