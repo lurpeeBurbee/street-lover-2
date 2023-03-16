@@ -18,7 +18,9 @@ public class PatrollingEnemy : MonoBehaviour
             yield return new WaitForSeconds(enemyWaitSeconds);
             Debug.Log("Enemy has waited " + enemyWaitSeconds);
             EnemyIsMovingLeft = true;
+           
         }
+   
     }
 
     void Start()
@@ -30,9 +32,14 @@ public class PatrollingEnemy : MonoBehaviour
     {
         if (collision.CompareTag("Wall"))
         {
+            Debug.Log("Collided with " + collision.gameObject.name);
             EnemyIsMovingRight = false;
             StartCoroutine(EnemyWaiting());
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        StopAllCoroutines();
     }
 
     void Update()
