@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemSound : MonoBehaviour
 {
-
+    public string scene;
     public AudioSource itemSound;
     public AudioClip itemsoundclip;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        itemSound.Play();
+        if (collision.CompareTag("Player")) 
+        {
+            Debug.Log("Collided!");
+            itemSound.PlayOneShot(itemsoundclip);
+            SceneManager.LoadScene(scene);
+        }
     }
-
-
-    void Update()
+    private void Start()
     {
-        
+        Debug.Log("Start works");
     }
 }

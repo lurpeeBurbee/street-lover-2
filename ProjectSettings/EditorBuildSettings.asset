@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Teacher's scenes/MainSceneSewers.unity
     guid: 442023d49a3ad054490506eead0fd4d6
+  - enabled: 1
+    path: Assets/Scenes/Audio scenes/AudioScene_2.unity
+    guid: f04957c8fd2982c4a85c247022ffd2cd
   m_configObjects: {}
