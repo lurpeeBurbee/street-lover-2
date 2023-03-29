@@ -6,22 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class ItemSound : MonoBehaviour
 {
-  //  public string scene;
+
     public AudioSource itemSound;
     public AudioClip itemsoundclip;
+    public float pitchValue;
+
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+
+    bool DiamondHit()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) 
+        if (collision.CompareTag("Player") || collision.CompareTag("Trigger")) 
         {
-            itemSound.pitch = 0.4f;
+            itemSound.pitch = pitchValue;
             itemSound.PlayOneShot(itemsoundclip);
             gameObject.SetActive(false);    
-            //SceneManager.LoadScene(scene);
+        
         }
     }
-    private void Start()
+
+    private void Update()
     {
-       
+        if(DiamondHit())
+        {
+            itemSound.pitch = pitchValue;
+            itemSound.PlayOneShot(itemsoundclip);
+        }
     }
+
 }
