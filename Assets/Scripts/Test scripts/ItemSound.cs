@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ItemSound : MonoBehaviour
 {
-    public string scene;
+  //  public string scene;
     public AudioSource itemSound;
     public AudioClip itemsoundclip;
 
@@ -13,13 +14,14 @@ public class ItemSound : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            Debug.Log("Collided!");
+            itemSound.pitch = 0.4f;
             itemSound.PlayOneShot(itemsoundclip);
-            SceneManager.LoadScene(scene);
+            gameObject.SetActive(false);    
+            //SceneManager.LoadScene(scene);
         }
     }
     private void Start()
     {
-        Debug.Log("Start works");
+       
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4834466701553245237}
   - component: {fileID: 4834466701553245236}
   - component: {fileID: 4834466701553245235}
-  - component: {fileID: 4834466701553245238}
+  - component: {fileID: 3042534985838178351}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4834466701553245238
+--- !u!114 &3042534985838178351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

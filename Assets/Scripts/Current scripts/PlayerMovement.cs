@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     float leftmove = 0.0f;
     float rightmove = 0.0f;
     public float moveSpeed;
-   [SerializeField] float superSpeedMoveControl; // T‰t‰ k‰ytet‰‰n argumenttina PlayerIsMovingSuperSpeed-funktiossa.
+    [SerializeField] float superSpeedMoveControl; // T‰t‰ k‰ytet‰‰n argumenttina PlayerIsMovingSuperSpeed-funktiossa.
     public float jumpForce;
 
     public Rigidbody2D rb;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     float superSpeed = 0f;
 
- 
+
 
     //--- AUDIO
     public AudioSource jumpsound;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        
+
         //  DontDestroyOnLoad(gameObject);
     }
 
@@ -63,17 +63,18 @@ public class PlayerMovement : MonoBehaviour
 
     float PlayerIsMovingSuperSpeed(float speed) //<-- Lis‰‰ t‰h‰n mik‰ vain muuttuja tyyppi‰ float.Voit myˆs antaa arvon t‰ss‰
     {
-        superSpeed -=  speed * Time.deltaTime;
+        superSpeed -= speed * Time.deltaTime;
         return superSpeed;
     }
 
     void MovePlayer()
     {
+
         if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
         {
             // move left:
 
-            leftmove =-moveSpeed;
+            leftmove = -moveSpeed;
             gameObject.transform.Translate(PlayerIsMovingSuperSpeed(superSpeedMoveControl), 0, 0);
             transform.localScale = new Vector3(-1, 1, 1); // k‰‰nt‰‰ Spriten toiseen suuntaan
 
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 rightmove = +moveSpeed;
                 transform.Translate(rightmove, 0, 0);
             }
-            if(1+1 == 2 || 1 +2 == 3)
+            if (1 + 1 == 2 || 1 + 2 == 3)
             {
                 rightmove = +moveSpeed;
                 transform.Translate(rightmove, 0, 0);
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown("space")) // tai KeyCode.Space
             {
-              //  jumpsound.PlayOneShot(jumpClip);
+                //  jumpsound.PlayOneShot(jumpClip);
 
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 
