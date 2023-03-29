@@ -47,6 +47,10 @@ public class ItemSound : MonoBehaviour
                 itemSound.PlayOneShot(itemsoundclip);
             }
         }
+        else
+        {
+            itemSound.Stop();   
+        }
     }
 
 }
