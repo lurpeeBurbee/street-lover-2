@@ -19,8 +19,6 @@ public class ItemSound : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") || collision.CompareTag("Trigger")) 
@@ -36,8 +34,12 @@ public class ItemSound : MonoBehaviour
     {
         if(DiamondHit())
         {
-            itemSound.pitch = pitchValue;
-            itemSound.PlayOneShot(itemsoundclip);
+            if (!itemSound.isPlaying)
+            {
+                Debug.Log("Sound is playing");
+                itemSound.pitch = pitchValue;
+                itemSound.PlayOneShot(itemsoundclip);
+            }
         }
     }
 
