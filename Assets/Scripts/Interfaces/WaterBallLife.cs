@@ -25,6 +25,7 @@ public class WaterBallLife : MonoBehaviour
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
+            Destroy(SplashEffect);
         }
     }
     void Update()

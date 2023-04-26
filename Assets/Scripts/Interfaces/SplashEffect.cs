@@ -7,7 +7,7 @@ public class SplashEffect : MonoBehaviour
 
     void Start()
     {
-      transform.SetParent(null);
+    //  transform.SetParent(null);
     }
 
     void Update()

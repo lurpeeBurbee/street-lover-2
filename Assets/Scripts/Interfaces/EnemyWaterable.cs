@@ -8,7 +8,7 @@ public class EnemyWaterable : MonoBehaviour, IWaterable
     {
         gameObject.SetActive(false);
     }
-    public void WaterHit(float waterHitValue)
+    public void WaterHit()
     {
         EnemyDisappear();   
     }

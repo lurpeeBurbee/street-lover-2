@@ -6,9 +6,9 @@ public class WaterBallCollision : MonoBehaviour
 {
     public void OnCollisionEnter2D(Collision2D collision)
     {
-            if (collision.gameObject.TryGetComponent<IWaterable>(out var water))
+            if (collision.gameObject.TryGetComponent<IWaterable>(out var obj))
             {
-                water.WaterHit(1);
+                obj.WaterHit();
             }
     }
 }

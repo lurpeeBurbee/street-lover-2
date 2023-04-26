@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantWaterable : MonoBehaviour, IWaterable
+public class PlantWaterable : MonoBehaviour, IWaterable, ICollectable
 {
     [SerializeField] GameObject vegetation;
     void Start()
@@ -13,9 +11,16 @@ public class PlantWaterable : MonoBehaviour, IWaterable
     {
         vegetation.SetActive(true);
     }
-    public void WaterHit(float waterHitValue)
+    public void WholePlantDisappear()
     {
-      PlantAppear();
+        gameObject.SetActive(false);
     }
-
+    public void WaterHit()
+    {
+        PlantAppear();
+    }
+    public void Collect()
+    {
+        WholePlantDisappear();
+    }
 }
