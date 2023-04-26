@@ -92,11 +92,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5432436129689672640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e9ab88319fb5344854f966b71bfb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammoMove: 0
   speed: 10
-  player: {fileID: 1117670616620306006, guid: 81f6faa405d328c488b0568df01e7ad3, type: 3}

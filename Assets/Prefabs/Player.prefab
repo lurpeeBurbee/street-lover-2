@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 9113888534715564928}
   - component: {fileID: 6322212214252733451}
   - component: {fileID: 1285696395}
-  - component: {fileID: 1314324201845291423}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -182,28 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireStartPosition: {fileID: 7217887356831286502}
   Fireblastball: {fileID: 5655817162664469524}
---- !u!114 &1314324201845291423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655817161375649346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081c1ae97d223694bb24437d297392b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.1
-  leftMove: 0
-  rightMove: 0
-  MoveConstraint: 0
-  jumpForce: 0
-  rb: {fileID: 5655817161375649345}
-  groundCheck: {fileID: 5655817161375649358}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &7592276184675183584
 GameObject:
   m_ObjectHideFlags: 0
