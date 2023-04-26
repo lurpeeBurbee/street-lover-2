@@ -12,6 +12,7 @@ TagManager:
   - Trigger
   - Wall
   - MeleeWeapon
+  - Fireball
   layers:
   - Default
   - TransparentFX
