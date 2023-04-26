@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ItemSound : MonoBehaviour
 {
-
     public AudioSource itemSound;
     public AudioClip itemsoundclip;
 
@@ -11,7 +10,6 @@ public class ItemSound : MonoBehaviour
 
     public Transform groundCheck;
     public LayerMask groundLayer;
-
 
     bool DiamondHit()
     {
