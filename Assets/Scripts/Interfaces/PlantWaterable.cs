@@ -3,10 +3,7 @@ using UnityEngine;
 public class PlantWaterable : MonoBehaviour, IWaterable, ICollectable
 {
     [SerializeField] GameObject vegetation;
-    void Start()
-    {
-        vegetation.SetActive(false);
-    }
+
     public void PlantAppear()
     {
         vegetation.SetActive(true);
