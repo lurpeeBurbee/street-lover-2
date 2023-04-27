@@ -13,6 +13,7 @@ TagManager:
   - Wall
   - MeleeWeapon
   - Fireball
+  - Cave
   layers:
   - Default
   - TransparentFX

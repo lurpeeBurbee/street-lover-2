@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class SimpleMovement : MonoBehaviour
 {
-    // Hidden in the inspector (Private variable). We don't need to see these, since we are only giving these a value by pressing a button.
+    // Hidden in the inspector (private variable). We don't need to see these,
+    // since we are giving these a value by pressing a button that we define below.
     float leftmove = 0.0f;
     float rightmove = 0.0f;
+    //---------------------------
+    // These are visible in the inspector (public variable)
     public float moveSpeed;
     public float jumpForce;
-
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
