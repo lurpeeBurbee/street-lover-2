@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class StreetLover : MonoBehaviour
 {
-    float MoveSpeed;
+  //  float MoveSpeed;
 
     int PlayerHealth;
     int MinHealth;
-    float RunSpeed;
+   // float RunSpeed;
     bool IsOnAir;
 
    bool IsOnAirChecker()
@@ -37,10 +37,10 @@ public class StreetLover : MonoBehaviour
 
     void Start()
     {
-        MoveSpeed = 0;
+       // MoveSpeed = 0;
         PlayerHealth = 100;
         MinHealth = 0;
-        RunSpeed = 2;
+       // RunSpeed = 2;
         IsOnAir = false;
 
 

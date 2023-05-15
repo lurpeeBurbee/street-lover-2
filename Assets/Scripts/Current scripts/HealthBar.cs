@@ -5,13 +5,12 @@ public class HealthBar : MonoBehaviour
 {
 
     // int HealthIndexGlobal = 100;
-    float SuperPowerUp = 120f;
+  //  float SuperPowerUp = 120f;
 
     [SerializeField]
     List<GameObject> HealthBarList;
-
-    int DamagePoint = 1;
-    int HealthPoint = 1;
+    readonly int DamagePoint = 1;
+    readonly int HealthPoint = 1;
 
     int HealthBarListIndex = 0;
 

@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class ValuePrinter : MonoBehaviour
 {
-    string shout = "JEE!!";
+    // string shout = "JEE!!";
 
-    int maxHealth = 10;
-    int minHealth = 0;
+    readonly int maxHealth = 10;
+    readonly int minHealth = 0;
     //float movespeed = 10; <-- will be used later
 
     void PrintValue(int number1, string word)
