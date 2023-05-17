@@ -7,6 +7,6 @@ public class GraphicSettings : MonoBehaviour
 
 public void SetGraphicsQuality(int quality)
     {
-        QualitySettings.SetQualityLevel(quality);   
+   //  QualitySettings.SetQualityLevel(quality);   
     }
 }

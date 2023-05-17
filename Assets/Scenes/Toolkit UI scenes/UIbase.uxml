@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MyStyleSheet.uss?fileID=7433441132597879392&amp;guid=4abb8650284d5cf4694d2b13d6253fe5&amp;type=3#MyStyleSheet" />
+    <ui:VisualElement name="Container">
+        <ui:Label text="Title" display-tooltip-when-elided="true" class="header" style="white-space: nowrap; -unity-text-align: lower-center; color: rgb(255, 0, 0); display: flex; font-size: 40px;" />
+    </ui:VisualElement>
+</ui:UXML>

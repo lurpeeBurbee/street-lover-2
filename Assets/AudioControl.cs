@@ -30,19 +30,7 @@ public class AudioControl : MonoBehaviour {
             }
         }
     }
-    public void ControlAudio(float audioVolume)
-    {
-        audioMixer.SetFloat("volume", audioVolume);    
-    }
-
-    void Start()
-    {
-        
-    }
 
 
-    void Update()
-    {
-        
-    }
+
 }

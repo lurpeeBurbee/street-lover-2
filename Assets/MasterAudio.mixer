@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MasterAudio
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300002}
+  m_Snapshots:
+  - {fileID: 24500006}
+  m_StartSnapshot: {fileID: 24500006}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_UpdateMode: 0
+  m_ExposedParameters:
+  - guid: 969da7ff9d7036443b557e3a630fe99d
+    name: volume
+  m_AudioMixerGroupViews:
+  - guids:
+    - d4b46331effc479488ac1f8591303372
+    name: View
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500006}
+--- !u!243 &24300002
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d4b46331effc479488ac1f8591303372
+  m_Children: []
+  m_Volume: 969da7ff9d7036443b557e3a630fe99d
+  m_Pitch: 5af9a77cc6321234c9c097bac0e3c32d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 24400004}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400004
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b0048d338973d01498e1fc6ba2be2af4
+  m_EffectName: Attenuation
+  m_MixLevel: d72c5d38ccef3444eaaa3e60e769c921
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500006
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: c6b4fc71011dfdc44b3a8bf87507d6c1
+  m_FloatValues:
+    32f3d000cf624ca42ba4bed55cb80ce4: 0.272
+    dc8e482170c296048a7d9aa9d901097a: 0.91800004
+    acdb6a192cac0184596f3b65ded4f802: 176
+    5af9a77cc6321234c9c097bac0e3c32d: 1
+    44d01d2ef1b76a34d8001952ae5f5fcf: 0.78699994
+    969da7ff9d7036443b557e3a630fe99d: 0
+  m_TransitionOverrides: {}

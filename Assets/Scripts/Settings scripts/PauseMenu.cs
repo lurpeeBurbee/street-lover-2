@@ -5,11 +5,6 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject UIcanvas;
-
-    void CloseUI()
-    {
-
-    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
