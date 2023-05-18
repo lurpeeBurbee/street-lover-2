@@ -1,2 +1,10 @@
 .header {
+    background-color: rgb(214, 72, 72);
+    color: rgba(255, 0, 0, 255);
+}
+
+.footer {
+    height: 200px;
+    -unity-text-outline-color: rgba(255, 255, 255, 255);
+    background-color: rgba(0, 16, 255, 255);
 }

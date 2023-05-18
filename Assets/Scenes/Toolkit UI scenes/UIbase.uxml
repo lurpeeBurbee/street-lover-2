@@ -1,6 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MyStyleSheet.uss?fileID=7433441132597879392&amp;guid=4abb8650284d5cf4694d2b13d6253fe5&amp;type=3#MyStyleSheet" />
-    <ui:VisualElement name="Container">
-        <ui:Label text="Title" display-tooltip-when-elided="true" class="header" style="white-space: nowrap; -unity-text-align: lower-center; color: rgb(255, 0, 0); display: flex; font-size: 40px;" />
+    <ui:VisualElement name="Container" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="header" class="header" style="width: 100%; height: 10%; flex-direction: row;">
+            <ui:IMGUIContainer style="background-image: url(&apos;project://database/Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/character_Mode@2x.png?fileID=2800000&amp;guid=5d52b20f865aff242bfcb08c3b6f61a5&amp;type=3#character_Mode@2x&apos;); width: 89px; height: 78px;" />
+            <ui:IMGUIContainer style="background-image: url(&apos;project://database/Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/character_Mode@2x.png?fileID=2800000&amp;guid=5d52b20f865aff242bfcb08c3b6f61a5&amp;type=3#character_Mode@2x&apos;); width: 89px; height: 78px;" />
+            <ui:IMGUIContainer style="background-image: url(&apos;project://database/Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/Icons/Selected/character_Mode@2x.png?fileID=2800000&amp;guid=5d52b20f865aff242bfcb08c3b6f61a5&amp;type=3#character_Mode@2x&apos;); width: 89px; height: 78px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main" style="height: 80%;" />
+        <ui:VisualElement name="footer" class="footer" style="flex-direction: column; justify-content: flex-start; height: 10%; width: 100%; align-items: stretch; position: relative; bottom: auto;" />
     </ui:VisualElement>
 </ui:UXML>
