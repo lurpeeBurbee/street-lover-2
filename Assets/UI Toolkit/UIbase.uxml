@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MyStyleSheet.uss?fileID=7433441132597879392&amp;guid=4abb8650284d5cf4694d2b13d6253fe5&amp;type=3#MyStyleSheet" />
+    <ui:VisualElement name="Container" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="header" class="info roundedcorners greenborder" style="width: auto; height: 10%; flex-direction: row; background-color: rgba(0, 0, 0, 0.27); justify-content: space-around; align-items: center; -unity-background-image-tint-color: rgb(255, 255, 255);">
+            <ui:VisualElement name="Items" style="width: 30%; height: 70%; flex-direction: row; align-items: stretch; justify-content: space-between;">
+                <ui:IMGUIContainer focusable="true" style="background-image: url(&apos;project://database/Assets/Images/barrell.png?fileID=2800000&amp;guid=db2b9108ad7ff894dae3530bb6a8423d&amp;type=3#barrell&apos;); width: 17%; display: none;" />
+                <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Images/barrell.png?fileID=2800000&amp;guid=db2b9108ad7ff894dae3530bb6a8423d&amp;type=3#barrell&apos;); width: 17%; display: none;" />
+                <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Images/barrell.png?fileID=2800000&amp;guid=db2b9108ad7ff894dae3530bb6a8423d&amp;type=3#barrell&apos;); width: 17%; display: none;" />
+                <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Images/barrell.png?fileID=2800000&amp;guid=db2b9108ad7ff894dae3530bb6a8423d&amp;type=3#barrell&apos;); width: 17%; display: none;" />
+                <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Images/barrell.png?fileID=2800000&amp;guid=db2b9108ad7ff894dae3530bb6a8423d&amp;type=3#barrell&apos;); width: 17%; display: none;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="barreltext" style="width: 20%; flex-direction: row;">
+                <ui:Label display-tooltip-when-elided="true" name="text" text="collected" class="text" style="font-size: 30%; -unity-text-align: middle-center; width: auto;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="rightfiller" style="width: 40%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main" class="greenborder" style="height: 80%; background-color: rgba(0, 0, 0, 0); -unity-text-align: middle-left; justify-content: center; align-items: stretch;">
+            <ui:VisualElement name="infoscreen" focusable="true" style="height: 10%; position: relative; top: auto; background-color: rgb(60, 180, 66); -unity-text-align: middle-center; justify-content: space-around; align-items: center; display: none;">
+                <ui:Label text="Found delicious PaleAle!" display-tooltip-when-elided="true" style="font-size: 20%; -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="footer" class="info roundedcorners greenborder" style="flex-direction: column; justify-content: space-around; height: 10%; width: 100%; align-items: center; position: relative; bottom: auto; background-color: rgba(0, 0, 0, 0.38);">
+            <ui:Label text="Collect all the barrels" display-tooltip-when-elided="true" class="text" style="font-size: 30%; -unity-text-align: middle-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

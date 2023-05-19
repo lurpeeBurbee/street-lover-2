@@ -1,10 +1,31 @@
-.header {
-    background-color: rgb(214, 72, 72);
-    color: rgba(255, 0, 0, 255);
+.greenborder {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgb(102, 255, 0);
+    border-right-color: rgb(102, 255, 0);
+    border-top-color: rgb(102, 255, 0);
+    border-bottom-color: rgb(102, 255, 0);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
-.footer {
-    height: 200px;
-    -unity-text-outline-color: rgba(255, 255, 255, 255);
-    background-color: rgba(0, 16, 255, 255);
+.main {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.roundedcorners {
+    border-top-left-radius: 51px;
+    border-bottom-left-radius: 51px;
+    border-top-right-radius: 51px;
+    border-bottom-right-radius: 51px;
+}
+
+.text {
+    color: rgb(40, 255, 0);
+    font-size: 30%;
 }
