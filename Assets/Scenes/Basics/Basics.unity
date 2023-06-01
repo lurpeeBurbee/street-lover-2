@@ -251,10 +251,10 @@ GameObject:
   m_Component:
   - component: {fileID: 388111315}
   - component: {fileID: 388111314}
-  - component: {fileID: 388111316}
   - component: {fileID: 388111317}
+  - component: {fileID: 388111318}
   m_Layer: 0
-  m_Name: EnemyPlayer
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.015686275, g: 0.043137256, b: 0.043137256, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -320,32 +320,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388111313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.38, y: 3, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &388111316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388111313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 244efeedf4c78b34ca4b5f3be21e4413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counter: 0
-  position: 0
-  playerName: Pelaaja
-  playerIsAwake: 0
-  canGoLeft: 0
-  playerXposition: 0
-  playerMoveSpeed: 0.05
 --- !u!70 &388111317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -362,6 +343,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &388111318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388111313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0fd578172b13b4589a6cf0dc780c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMoveValue: 0
+  moveSpeed: 1.72
 --- !u!1 &683062469
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +369,7 @@ GameObject:
   - component: {fileID: 683062470}
   - component: {fileID: 683062472}
   m_Layer: 0
-  m_Name: Player2
+  m_Name: PlayerBlueTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,9 +451,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 683062469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8049e56dd399a794cab961477b551d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: e00bacfbbf4612b428aa482df1adb17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playername: PlayerHeroBlue
+  minHealth: 0
+  playerHealth: 1000
+  playerMovement: 0
+  playerIsMoving: 0
 --- !u!1 &1501602875
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +517,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f6bfc5dcf86ea234c90dec029eafdb19, type: 3}
+  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -536,9 +536,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501602875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 22.64, y: 22.64, z: 22.64}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0.2067, y: 0.14, z: 0}
+  m_LocalScale: {x: 1.4775584, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
