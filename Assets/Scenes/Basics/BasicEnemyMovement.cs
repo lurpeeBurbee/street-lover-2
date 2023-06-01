@@ -6,6 +6,7 @@ public class BasicEnemyMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     readonly float enemyMaxLeftPosition = -7.3f;
     public bool canMoveLeft;
+    public SpriteRenderer spriteRenderer;   
     void MoveEnemy()
     {
         if (transform.position.x > enemyMaxLeftPosition && canMoveLeft == true) // toimii myös pelkkä canMoveLeft
@@ -24,6 +25,7 @@ public class BasicEnemyMovement : MonoBehaviour
     }
     void Start()
     {
+        spriteRenderer.color = Color.white; 
         canMoveLeft = true;
     }
     void Update()
