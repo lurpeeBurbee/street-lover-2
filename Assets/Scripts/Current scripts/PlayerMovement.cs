@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // ei saa hypp‰‰ ilmassa
 
-            if (Input.GetKeyDown("space")) // tai KeyCode.Space
+            if (Input.GetKeyDown(KeyCode.Space)) // tai KeyCode.Space
             {
                 //  jumpsound.PlayOneShot(jumpClip);
 

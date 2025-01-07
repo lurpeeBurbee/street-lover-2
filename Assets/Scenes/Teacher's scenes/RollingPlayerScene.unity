@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 76881993474356979, guid: 6746acac7b4301c4eaf479fe4da17bb5, type: 3}
+      propertyPath: m_Intensity
+      value: 3.06
+      objectReference: {fileID: 0}
     - target: {fileID: 2133789125781540320, guid: 6746acac7b4301c4eaf479fe4da17bb5, type: 3}
       propertyPath: m_Name
       value: Ninja scroll scene
