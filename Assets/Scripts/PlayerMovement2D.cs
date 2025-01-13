@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class PlayerMovement2D : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f; // Speed of the player's movement

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class PlayerMovement2D : MonoBehaviour
+public class PlayerMovement2D_pickle : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f; // Speed of the player's movement
     [Header("Enable jump")]
@@ -12,6 +12,8 @@ public class PlayerMovement2D : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private bool isTouchingWall;
     private float wallFriction = 1f;
+    private bool facingRight = false;
+    public AudioSource jumpSound; // Reference to the AudioSource for the jump sound
 
 
     private void Awake()
@@ -35,6 +37,7 @@ public class PlayerMovement2D : MonoBehaviour
 
         HandleFriction();
         ControlJump();
+        FlipSprite(moveInput);
     }
 
     private void AddComponents()
@@ -79,7 +82,28 @@ public class PlayerMovement2D : MonoBehaviour
             if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
             {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+
+                if (jumpSound != null)
+                {
+                    jumpSound.Play(); // Play the jump sound
+                }
             }
+        }
+    }
+
+
+    private void FlipSprite(float moveInput)
+    {
+        // Flip the sprite based on horizontal movement direction
+        if (moveInput > 0 && !facingRight)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveInput < 0 && facingRight)
+        {
+            facingRight = false;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 
