@@ -90,8 +90,6 @@ public class PlayerMovement2D_pickle : MonoBehaviour
             }
         }
     }
-
-
     private void FlipSprite(float moveInput)
     {
         // Flip the sprite based on horizontal movement direction
