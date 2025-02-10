@@ -1385,7 +1385,57 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      link_sprite_sheet_0: -4332271971556968566
+      link_sprite_sheet_1: 2447647615118175829
+      link_sprite_sheet_10: 5864901719778533793
+      link_sprite_sheet_11: 123519940627938481
+      link_sprite_sheet_12: -87109631497181508
+      link_sprite_sheet_13: -5095855491308910519
+      link_sprite_sheet_14: -2643246955881727136
+      link_sprite_sheet_15: -9147833181506033970
+      link_sprite_sheet_16: 6328061621312783287
+      link_sprite_sheet_17: -4932524545713258756
+      link_sprite_sheet_18: -7369276123222586645
+      link_sprite_sheet_19: -6053248401535636491
+      link_sprite_sheet_2: 2722037849614466608
+      link_sprite_sheet_20: -2265702699950151181
+      link_sprite_sheet_21: 512584999193186183
+      link_sprite_sheet_22: 7920524559008689592
+      link_sprite_sheet_23: -2093214868498516883
+      link_sprite_sheet_24: -1793115844378692781
+      link_sprite_sheet_25: -841720446013071536
+      link_sprite_sheet_26: 3346924393612078940
+      link_sprite_sheet_27: 6888513357883615029
+      link_sprite_sheet_28: 653147097777727203
+      link_sprite_sheet_29: 8064598378616834362
+      link_sprite_sheet_3: 2012991313188473089
+      link_sprite_sheet_30: 4185993440105337832
+      link_sprite_sheet_31: -4857275584158723186
+      link_sprite_sheet_32: 4974368499362530722
+      link_sprite_sheet_33: -6052147580415773617
+      link_sprite_sheet_34: -3702723143442110052
+      link_sprite_sheet_35: -8144293549691387104
+      link_sprite_sheet_36: -3710266983183294122
+      link_sprite_sheet_37: -2771685676540138307
+      link_sprite_sheet_38: 4713265103475420180
+      link_sprite_sheet_39: -3267666471406099729
+      link_sprite_sheet_4: 95244099380129674
+      link_sprite_sheet_40: 5647918969664479634
+      link_sprite_sheet_41: 6555413040398298708
+      link_sprite_sheet_42: 2710009988116870670
+      link_sprite_sheet_43: 3835682581281589423
+      link_sprite_sheet_44: -4090216349181373550
+      link_sprite_sheet_45: 2333299805311121425
+      link_sprite_sheet_46: -8321752279208752348
+      link_sprite_sheet_47: -3274931421673442082
+      link_sprite_sheet_48: -3769631985379612284
+      link_sprite_sheet_49: -7884594176198006277
+      link_sprite_sheet_5: 2200223698738637966
+      link_sprite_sheet_6: 6426827554862695841
+      link_sprite_sheet_7: 1581251992524476896
+      link_sprite_sheet_8: 5633386021340541632
+      link_sprite_sheet_9: 6603530516415601651
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
