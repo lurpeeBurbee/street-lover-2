@@ -26,4 +26,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Teacher's scenes/Level-1.5.unity
     guid: 600879cb0399cd34b87b161cfb1ea6fc
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Group13-UnityBasics/House/inHouse.unity
+    guid: 29e03c3592150cb47bbbce0936b2ef14
+  - enabled: 1
+    path: Assets/Scenes/Teacher's scenes/MainSceneSewers.unity
+    guid: 442023d49a3ad054490506eead0fd4d6
+  - enabled: 1
+    path: Assets/Scenes/Audio scenes/AudioScene_2.unity
+    guid: f04957c8fd2982c4a85c247022ffd2cd
+  - enabled: 1
+    path: Assets/Scenes/Group13-UnityBasics/Outdoors.unity
+    guid: e76c4675797ebd64695f0c8c0fd236e4
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4a9d10744decadf4a929bd147f3bc4b9, type: 3}
+  m_UseUCBPForAssetBundles: 0

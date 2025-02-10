@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     float leftmove = 0.0f;
     float rightmove = 0.0f;
     public float moveSpeed;
-   [SerializeField] float superSpeedMoveControl; // T‰t‰ k‰ytet‰‰n argumenttina PlayerIsMovingSuperSpeed-funktiossa.
     public float jumpForce;
 
     public Rigidbody2D rb;
@@ -14,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask jumpableObject;
 
-    float superSpeed = 0f;
+    public bool isFacingRight;
 
- 
+
 
     //--- AUDIO
     public AudioSource jumpsound;
@@ -29,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        isFacingRight = true;
 
-        
         //  DontDestroyOnLoad(gameObject);
     }
 
@@ -61,40 +60,27 @@ public class PlayerMovement : MonoBehaviour
     // T‰h‰n funktio, mik‰ liikuttaa pelaajaa. Aseta se Updateen.
     // Muista laittaa bracketit kiinni
 
-    float PlayerIsMovingSuperSpeed(float speed) //<-- Lis‰‰ t‰h‰n mik‰ vain muuttuja tyyppi‰ float.Voit myˆs antaa arvon t‰ss‰
-    {
-        superSpeed -=  speed * Time.deltaTime;
-        return superSpeed;
-    }
+
 
     void MovePlayer()
     {
-        if (Input.GetKey("a") || Input.GetKey(KeyCode.LeftArrow))
+
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             // move left:
 
-            leftmove =-moveSpeed;
-            gameObject.transform.Translate(PlayerIsMovingSuperSpeed(superSpeedMoveControl), 0, 0);
-            transform.localScale = new Vector3(-1, 1, 1); // k‰‰nt‰‰ Spriten toiseen suuntaan
-
+            leftmove = -moveSpeed;
+            transform.Translate(leftmove, 0, 0);
+            transform.localScale = new Vector3(-1, 1, 1); // k‰‰nt‰‰ Spriten menosuuntaan
+            isFacingRight = false;
         }
         // move right:
-        if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-
-            if (1 + 1 == 3)
-            {
-                rightmove = +moveSpeed;
-                transform.Translate(rightmove, 0, 0);
-            }
-            if(1+1 == 2 || 1 +2 == 3)
-            {
-                rightmove = +moveSpeed;
-                transform.Translate(rightmove, 0, 0);
-            }
-
-            transform.localScale = new Vector3(1, 1, 1);
-
+            rightmove = +moveSpeed;
+            transform.Translate(rightmove, 0, 0);
+            transform.localScale = new Vector3(1, 1, 1); // k‰‰nt‰‰ Spriten menosuuntaan
+            isFacingRight = true;
         }
     }
     void JumpPlayer()
@@ -103,9 +89,9 @@ public class PlayerMovement : MonoBehaviour
         {
             // ei saa hypp‰‰ ilmassa
 
-            if (Input.GetKeyDown("space")) // tai KeyCode.Space
+            if (Input.GetKeyDown(KeyCode.Space)) // tai KeyCode.Space
             {
-                jumpsound.PlayOneShot(jumpClip);
+                //  jumpsound.PlayOneShot(jumpClip);
 
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 

@@ -7,8 +7,8 @@ public class AnotherTest : MonoBehaviour
     int MinHealth;
     int CurrentHealth;
 
-    int damage;
-    int HealthPotion;
+//    int damage;
+   // int HealthPotion;
 
   
 
@@ -18,8 +18,8 @@ public class AnotherTest : MonoBehaviour
         MinHealth = 0;
         CurrentHealth = MaxHealthNumber;
 
-        damage = 5;
-        HealthPotion = 10;
+       // damage = 5;
+      //  HealthPotion = 10;
 
     }
 

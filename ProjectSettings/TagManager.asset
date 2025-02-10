@@ -2,13 +2,21 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   - PaleAleHealth
   - MegaHealthBarrell
   - Well
   - Door
+  - Trigger
+  - Wall
+  - MeleeWeapon
+  - Fireball
+  - Cave
+  - CaveExit
+  - Bullet
+  - EnemyNinja
   layers:
   - Default
   - TransparentFX
@@ -21,8 +29,8 @@ TagManager:
   - Barrell
   - Enemy
   - jumpableObject
-  - 
-  - 
+  - Player
+  - Wall
   - 
   - 
   - 
@@ -64,3 +72,12 @@ TagManager:
   - name: Player
     uniqueID: 1251645139
     locked: 0
+  m_RenderingLayers:
+  - Default
+  - Light Layer 1
+  - Light Layer 2
+  - Light Layer 3
+  - Light Layer 4
+  - Light Layer 5
+  - Light Layer 6
+  - Light Layer 7
