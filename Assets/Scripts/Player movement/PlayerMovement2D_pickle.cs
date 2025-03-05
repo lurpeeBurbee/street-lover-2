@@ -3,7 +3,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PlayerMovement2D_pickle : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Speed of the player's movement
+    public float moveSpeed = 5f; // Speed of the player's movement
     [Header("Enable jump")]
     [SerializeField] bool canJump;
     [SerializeField] private float jumpForce = 10f; // Force applied to the player for jumping

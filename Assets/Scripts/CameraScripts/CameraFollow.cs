@@ -5,9 +5,12 @@ public class CameraFollow : MonoBehaviour
     public Transform player; // Reference to the player's transform
     public float followDelay = 0.1f; // Delay in following the player
     public bool followYAxis = true; // Boolean to determine whether to follow the player on the y-axis
+    public float yThreshold = 1.0f; // Threshold for y-axis adjustment
+    public float minYPosition = 0.0f; // Minimum y-position for the camera
 
     private Vector3 offset; // Offset between the camera and the player
-    public float fixedY; // Fixed y-axis position for the camera
+    private float initialY; // Initial y-axis position of the camera
+
     void Start()
     {
         if (player == null)
@@ -20,8 +23,9 @@ public class CameraFollow : MonoBehaviour
         offset = transform.position - player.position;
 
         // Store the initial y-axis position of the camera
-        fixedY = transform.position.y;
+        initialY = transform.position.y;
     }
+
     void LateUpdate()
     {
         if (player == null) return;
@@ -29,7 +33,13 @@ public class CameraFollow : MonoBehaviour
         // Calculate the target position based on whether the camera follows the y-axis
         Vector3 targetPosition = followYAxis
             ? new Vector3(player.position.x, player.position.y, player.position.z) + offset
-            : new Vector3(player.position.x, fixedY, player.position.z) + offset;
+            : new Vector3(player.position.x, initialY, player.position.z) + offset;
+
+        // Apply minimum y-position restriction
+        if (targetPosition.y < minYPosition)
+        {
+            targetPosition.y = minYPosition;
+        }
 
         // Smoothly interpolate between the camera's current position and the target position
         transform.position = Vector3.Lerp(transform.position, targetPosition, followDelay);

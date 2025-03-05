@@ -24,7 +24,7 @@ public class CameraHorizontal : MonoBehaviour
         targetPosition = transform.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (!isMoving)
         {
