@@ -18,6 +18,8 @@ TagManager:
   - Bullet
   - EnemyNinja
   - Egg
+  - LeftTrigger
+  - RightTrigger
   layers:
   - Default
   - TransparentFX
