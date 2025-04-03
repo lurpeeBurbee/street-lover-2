@@ -3,19 +3,17 @@ using UnityEngine;
 public class JumpSound : MonoBehaviour
 {
 
-    // Audio
+ 
     public AudioSource jumpsound;
-
     public AudioClip jumpsoundclip;
-    Animator animator;
+    private readonly Animator animator;
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpsound.PlayOneShot(jumpsoundclip);
 
-            animator.SetBool("ChestOpen", true);
         }
     }
 }

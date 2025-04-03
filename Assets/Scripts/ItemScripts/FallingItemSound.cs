@@ -34,7 +34,15 @@ public class FallingItemSound : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & groundLayer) != 0 && canPlaySound)
         {
-            audioSource.Play();
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(hitSound, volume);
+            }
+            else
+            {
+                Debug.LogError("AudioSource not found on the GameObject.");
+            }
+  
             canPlaySound = false;
         }
     }

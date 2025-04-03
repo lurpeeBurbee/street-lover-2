@@ -40,7 +40,7 @@ public class ItemSound : MonoBehaviour
 
                 // Soittaa soundin random pitch-taajuuksilla
                 itemSound.pitch = Random.Range(minPitchValue, maxPitchValue);
-                Debug.Log("Sound is playing with a pitch value of: " + itemSound.pitch);
+             //   Debug.Log("Sound is playing with a pitch value of: " + itemSound.pitch);
                 
                 itemSound.PlayOneShot(itemsoundclip);
             }
