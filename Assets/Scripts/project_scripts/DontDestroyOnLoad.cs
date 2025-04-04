@@ -7,6 +7,7 @@ public class DontDestroyOnLoad : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(gameObject.name + " is not destroyed on load.");  
         DontDestroyOnLoad(this);    
     }
 

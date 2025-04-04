@@ -35,7 +35,7 @@ TagManager:
   - Player
   - Wall
   - Item
-  - 
+  - EnvironmentSwitcher
   - 
   - 
   - 
