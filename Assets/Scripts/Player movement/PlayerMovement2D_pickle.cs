@@ -27,6 +27,15 @@ public class PlayerMovement2D_pickle : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        if (jumpSound != null)
+        {
+            jumpSound.time = 0;
+            jumpSound.Play();
+            jumpSound.Pause();
+        }
+
+        // Initialize facing direction based on the initial sprite orientation (facing left)
+        facingRight = false;
     }
 
     private void Update()
@@ -73,21 +82,18 @@ public class PlayerMovement2D_pickle : MonoBehaviour
             wallFriction = 1f;
         }
     }
-
     private void ControlJump()
     {
-        // Handle jumping
-        if (canJump)
+        if (canJump && isGrounded && (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
+            // Play sound FIRST with forced immediate playback
+            if (jumpSound != null)
             {
-                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-
-                if (jumpSound != null)
-                {
-                    jumpSound.Play(); // Play the jump sound
-                }
+                jumpSound.PlayOneShot(jumpSound.clip, 1f); // Better for rapid playback
             }
+
+            // Then apply force
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
     private void FlipSprite(float moveInput)
@@ -129,5 +135,11 @@ public class PlayerMovement2D_pickle : MonoBehaviour
         {
             isTouchingWall = false;
         }
+    }
+
+    // Public method to get the current facing direction
+    public bool IsFacingRight()
+    {
+        return facingRight;
     }
 }
