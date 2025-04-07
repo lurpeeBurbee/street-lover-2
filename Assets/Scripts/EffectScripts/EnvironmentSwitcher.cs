@@ -5,65 +5,58 @@ using UnityEngine.UI;
 public class EnvironmentSwitcher : MonoBehaviour
 {
     [Header("BACKGROUND SETTINGS")]
-    [Tooltip("Drag the Canvas Panel with the background Image component here")]
     public Image backgroundImage;
-    [Tooltip("First background texture (fades out when transitioning)")]
-    public Sprite backgroundA;
-    [Tooltip("Second background texture (fades in when transitioning)")]
-    public Sprite backgroundB;
-    [Tooltip("Fade color (default is black)")]
+    public Sprite cityBackground;  // Left side
+    public Sprite forestBackground; // Right side
     public Color fadeColor = Color.black;
-    [Tooltip("Fade duration multiplier (higher = slower transition)")]
     public float fadeSpeed = 1f;
 
     [Header("AUDIO SETTINGS")]
-    [Tooltip("Main background audio source (fades out)")]
-    public AudioSource audioSourceA;
-    [Tooltip("Secondary audio source (fades in)")]
-    public AudioSource audioSourceB;
-    [Tooltip("Check to enable audio crossfading")]
-    public bool enableAudioFade = true;
+    public AudioSource cityAudio;
+    public AudioSource forestAudio;
 
     [Header("TRIGGER SETTINGS")]
-    [Tooltip("Layer that triggers the transition (e.g., Player)")]
     public LayerMask triggerLayer;
-    [Tooltip("Show debug visuals for the trigger area")]
     public bool debugVisuals = true;
 
     private bool isTransitioning;
-    private Sprite currentBackground;
-    private Sprite targetBackground;
-    private AudioSource currentAudio;
-    private AudioSource targetAudio;
-    private Color originalColor;
+    private float centerPosition;
+    private float halfWidth;
+    private Transform playerTransform;
 
     private void Start()
     {
-        // Initialize audio sources
-        if (enableAudioFade)
-        {
-            audioSourceA.volume = 1f;
-            audioSourceA.Play();
-            audioSourceB.volume = 0f;
-            audioSourceB.Play();
-        }
-
-        // Set up initial state
-        originalColor = backgroundImage.color;
-        currentBackground = backgroundA;
-        targetBackground = backgroundB;
-        currentAudio = audioSourceA;
-        targetAudio = audioSourceB;
+        // Set initial state
+        backgroundImage.color = Color.white;
+        backgroundImage.sprite = cityBackground; // Default to city
 
         // Configure collider
         GetComponent<Collider2D>().isTrigger = true;
+
+        // Calculate trigger area properties
+        centerPosition = transform.position.x;
+        halfWidth = transform.localScale.x / 2;
+
+        // Initialize audio
+        cityAudio.volume = 1f;
+        forestAudio.volume = 0f;
+    }
+
+    private void Update()
+    {
+        // Constant validation when player is in trigger area
+        if (playerTransform != null)
+        {
+            ValidateBackgroundPosition();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (((1 << other.gameObject.layer) & triggerLayer) != 0)
         {
-            StartTransition(other.transform);
+            playerTransform = other.transform;
+            StartTransition();
         }
     }
 
@@ -71,58 +64,7 @@ public class EnvironmentSwitcher : MonoBehaviour
     {
         if (((1 << other.gameObject.layer) & triggerLayer) != 0)
         {
-            UpdateTransition(other.transform);
-        }
-    }
-
-    private void StartTransition(Transform player)
-    {
-        if (isTransitioning) return;
-
-        isTransitioning = true;
-
-        // Swap target assets
-        if (backgroundImage.sprite == backgroundA || backgroundImage.sprite == null)
-        {
-            targetBackground = backgroundB;
-            targetAudio = audioSourceB;
-            currentAudio = audioSourceA;
-        }
-        else
-        {
-            targetBackground = backgroundA;
-            targetAudio = audioSourceA;
-            currentAudio = audioSourceB;
-        }
-
-        // Ensure both audio sources are playing
-        if (enableAudioFade)
-        {
-            if (!currentAudio.isPlaying) currentAudio.Play();
-            if (!targetAudio.isPlaying) targetAudio.Play();
-        }
-    }
-
-    private void UpdateTransition(Transform player)
-    {
-        if (!isTransitioning) return;
-
-        // Calculate progress based on player position in trigger area
-        float horizontalProgress = Mathf.InverseLerp(
-            transform.position.x - transform.localScale.x / 2,
-            transform.position.x + transform.localScale.x / 2,
-            player.position.x
-        );
-
-        // Apply fade to background
-        backgroundImage.sprite = targetBackground;
-        backgroundImage.color = Color.Lerp(originalColor, fadeColor, horizontalProgress);
-
-        // Crossfade audio if enabled
-        if (enableAudioFade)
-        {
-            currentAudio.volume = 1 - horizontalProgress;
-            targetAudio.volume = horizontalProgress;
+            UpdateTransition();
         }
     }
 
@@ -131,22 +73,71 @@ public class EnvironmentSwitcher : MonoBehaviour
         if (((1 << other.gameObject.layer) & triggerLayer) != 0)
         {
             CompleteTransition();
+            playerTransform = null;
+        }
+    }
+
+    private void ValidateBackgroundPosition()
+    {
+        float playerX = playerTransform.position.x;
+        bool shouldBeForest = playerX > centerPosition;
+
+        // Immediate correction if wrong background is shown
+        if (shouldBeForest && backgroundImage.sprite != forestBackground && !isTransitioning)
+        {
+            backgroundImage.sprite = forestBackground;
+            cityAudio.volume = 0f;
+            forestAudio.volume = 1f;
+        }
+        else if (!shouldBeForest && backgroundImage.sprite != cityBackground && !isTransitioning)
+        {
+            backgroundImage.sprite = cityBackground;
+            cityAudio.volume = 1f;
+            forestAudio.volume = 0f;
+        }
+    }
+
+    private void StartTransition()
+    {
+        if (isTransitioning) return;
+        isTransitioning = true;
+    }
+
+    private void UpdateTransition()
+    {
+        if (!isTransitioning || playerTransform == null) return;
+
+        float playerX = playerTransform.position.x;
+        float distanceFromCenter = Mathf.Abs(playerX - centerPosition);
+        float fadeAmount = 1 - (distanceFromCenter / halfWidth);
+
+        // Apply fade to black at center
+        backgroundImage.color = Color.Lerp(Color.white, fadeColor, fadeAmount);
+
+        // Switch background at full black (center point)
+        if (fadeAmount >= 0.99f)
+        {
+            bool shouldBeForest = playerX > centerPosition;
+            backgroundImage.sprite = shouldBeForest ? forestBackground : cityBackground;
+
+            // Audio cut (as requested)
+            cityAudio.volume = shouldBeForest ? 0f : 1f;
+            forestAudio.volume = shouldBeForest ? 1f : 0f;
         }
     }
 
     private void CompleteTransition()
     {
-        // Finalize the swap
-        currentBackground = targetBackground;
-        backgroundImage.color = originalColor;
+        if (!isTransitioning) return;
 
-        if (enableAudioFade)
-        {
-            currentAudio.volume = 0f;
-            targetAudio.volume = 1f;
-        }
-
+        backgroundImage.color = Color.white;
         isTransitioning = false;
+
+        // Final validation
+        if (playerTransform != null)
+        {
+            ValidateBackgroundPosition();
+        }
     }
 
     private void OnDrawGizmos()
@@ -157,5 +148,11 @@ public class EnvironmentSwitcher : MonoBehaviour
         Gizmos.DrawCube(transform.position, transform.localScale);
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, transform.localScale);
+
+        // Draw center line
+        Gizmos.color = Color.red;
+        Vector3 centerLineStart = transform.position + Vector3.up * transform.localScale.y / 2;
+        Vector3 centerLineEnd = transform.position + Vector3.down * transform.localScale.y / 2;
+        Gizmos.DrawLine(centerLineStart, centerLineEnd);
     }
 }
