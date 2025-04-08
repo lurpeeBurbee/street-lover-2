@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      city-night_0: 6630111391520949115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
