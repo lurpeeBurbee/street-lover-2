@@ -328,12 +328,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65136903}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.74, y: 0.33, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.69582, y: -5.8696094, z: -0.0049495115}
   m_LocalScale: {x: 3.2199998, y: 3.122424, z: 4.878789}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1971554316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164718436
 GameObject:
@@ -552,6 +552,8 @@ GameObject:
   - component: {fileID: 236562349}
   - component: {fileID: 236562350}
   - component: {fileID: 236562351}
+  - component: {fileID: 236562352}
+  - component: {fileID: 236562353}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -744,6 +746,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 236562349}
   paperDudeMovement: {fileID: 236562350}
+--- !u!114 &236562352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236562343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbee2c6e4cdfdc7478483afc3fd2d0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: 6242eaebacacca9468cf0d91d0a0a32c, type: 3}
+--- !u!114 &236562353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236562343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4be0937995c76a40be7bc60f0ceefbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerFeet: {fileID: 236562347}
+  checkRadius: 3
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  layerAudioPairs:
+  - layerName: Concrete
+    audioClip: {fileID: 8300000, guid: 6242eaebacacca9468cf0d91d0a0a32c, type: 3}
+  - layerName: Grass
+    audioClip: {fileID: 8300000, guid: 6a316157116a9be4ba9b707e6a8ae245, type: 3}
 --- !u!1 &411276571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,12 +1336,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504717607}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.980001, y: 1.93, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.935822, y: -4.2696095, z: -0.0049495115}
   m_LocalScale: {x: 3.2199998, y: 3.2199998, z: 3.2199998}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1971554316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545850612
 GameObject:
@@ -1647,7 +1684,7 @@ GameObject:
   - component: {fileID: 730869785}
   - component: {fileID: 730869784}
   - component: {fileID: 730869783}
-  m_Layer: 6
+  m_Layer: 16
   m_Name: Grass
   m_TagString: Trigger
   m_Icon: {fileID: 0}
@@ -1764,7 +1801,7 @@ Transform:
   m_GameObject: {fileID: 730869782}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.5445, y: -10.2882, z: -0.0049495115}
+  m_LocalPosition: {x: 35.5445, y: -10.2882, z: 0}
   m_LocalScale: {x: 10.84, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7243,12 +7280,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132675361}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.29, y: -1.56, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.245821, y: -7.759609, z: -0.0049495115}
   m_LocalScale: {x: 3.2199998, y: 3.2199998, z: 3.2199998}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1971554316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1136843981
 GameObject:
@@ -7330,12 +7367,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136843981}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.82, y: -0.19, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.77582, y: -6.3896093, z: -0.0049495115}
   m_LocalScale: {x: 3.2199998, y: 3.2199998, z: 3.2199998}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1971554316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1158553733
 GameObject:
@@ -9205,7 +9242,7 @@ GameObject:
   - component: {fileID: 1667227058}
   - component: {fileID: 1667227057}
   - component: {fileID: 1667227056}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Beton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10175,13 +10212,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundImage: {fileID: 1131653022}
-  backgroundA: {fileID: 6630111391520949115, guid: 4da4b34dfc147084f9a9f53b0c5886d0, type: 3}
-  backgroundB: {fileID: -1343518637512107228, guid: 9a7ba2c16148a3344862566363c08531, type: 3}
+  cityBackground: {fileID: 6630111391520949115, guid: 4da4b34dfc147084f9a9f53b0c5886d0, type: 3}
+  forestBackground: {fileID: -1343518637512107228, guid: 9a7ba2c16148a3344862566363c08531, type: 3}
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeSpeed: 1
-  audioSourceA: {fileID: 1697448570}
-  audioSourceB: {fileID: 2136722338}
-  enableAudioFade: 1
+  cityAudio: {fileID: 1697448570}
+  forestAudio: {fileID: 2136722338}
   triggerLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -10362,6 +10398,10 @@ Transform:
   - {fileID: 1412312820}
   - {fileID: 669153092}
   - {fileID: 411276572}
+  - {fileID: 65136905}
+  - {fileID: 1136843983}
+  - {fileID: 504717609}
+  - {fileID: 1132675363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013662051
@@ -11113,7 +11153,7 @@ GameObject:
   - component: {fileID: 2136722337}
   - component: {fileID: 2136722338}
   m_Layer: 0
-  m_Name: Audio nature ambience
+  m_Name: Audio forest ambience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11290,7 +11330,3 @@ SceneRoots:
   - {fileID: 1971554316}
   - {fileID: 1235148007}
   - {fileID: 1811083768}
-  - {fileID: 65136905}
-  - {fileID: 1136843983}
-  - {fileID: 504717609}
-  - {fileID: 1132675363}
