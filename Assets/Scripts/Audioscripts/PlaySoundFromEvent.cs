@@ -18,7 +18,7 @@ public class PlaySoundFromEvent : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
-
+ 
     public void PlaySoundClip()
     {
         // Check if the soundClip is assigned

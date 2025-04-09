@@ -6,7 +6,9 @@ public class SoilRecognizer : MonoBehaviour
     public float checkRadius = 0.1f; // Radius of the check area
     public LayerMask groundLayerMask; // Layer mask to filter ground layers
 
-    [System.Serializable] // Class to hold layer name and corresponding audio clip  
+    [System.Serializable] 
+    
+    // Class to hold layer name and corresponding audio clip  
     public class LayerAudioPair
     {
         public string layerName;
