@@ -63,6 +63,14 @@ public class UIMickeyControl : MonoBehaviour
         if (optionsCanvas != null)
         {
             optionsCanvas.SetActive(false);
+
+            // IMPORTANT: Set up the UIMickeyOptions script if it exists
+            UIMickeyOptions optionsScript = optionsCanvas.GetComponent<UIMickeyOptions>();
+            if (optionsScript != null)
+            {
+                // Set this script as the controller for the options script
+                optionsScript.mainMenuController = this;
+            }
         }
         else
         {
@@ -72,7 +80,6 @@ public class UIMickeyControl : MonoBehaviour
             }
         }
 
-
         // --- Button Listener Setup ---
         if (menuButtons.Length >= 1 && menuButtons[0] != null)
             menuButtons[0].onClick.AddListener(() => StartCoroutine(LoadSceneAfterFade(sceneToLoad)));
@@ -80,7 +87,7 @@ public class UIMickeyControl : MonoBehaviour
             Debug.LogWarning("UIMickeyControl: Start Button (menuButtons[0]) not assigned.", this);
 
         if (menuButtons.Length >= 2 && menuButtons[1] != null)
-            menuButtons[1].onClick.AddListener(ToggleOptions);
+            menuButtons[1].onClick.AddListener(OpenOptions);
         else
             Debug.LogWarning("UIMickeyControl: Options Button (menuButtons[1]) not assigned.", this);
 
@@ -96,7 +103,16 @@ public class UIMickeyControl : MonoBehaviour
         }
 
         // --- Initial Button State ---
-        SetButtonsInteractable(optionsCanvas == null || !optionsCanvas.activeSelf);
+        SetButtonsInteractable(true); // Start with buttons enabled
+    }
+
+    void OnEnable()
+    {
+        // Register for option canvas visibility changes
+        if (optionsCanvas != null)
+        {
+            optionsCanvas.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -183,28 +199,42 @@ public class UIMickeyControl : MonoBehaviour
     }
 
     /// <summary>
-    /// Toggles the visibility of the options canvas and updates button interactability accordingly.
+    /// Opens the options canvas and disables main menu buttons if needed.
     /// </summary>
-    private void ToggleOptions()
+    public void OpenOptions()
     {
         if (optionsCanvas != null)
         {
-            // Determine the NEW state the options canvas will be in
-            bool isShowingOptions = !optionsCanvas.activeSelf;
-            // Apply the new state
-            optionsCanvas.SetActive(isShowingOptions);
+            optionsCanvas.SetActive(true);
 
-            // --- UPDATED LOGIC ---
-            // Determine the desired state for the main menu buttons.
-            // Buttons should be interactable UNLESS options are showing AND it's configured as an overlay.
-            bool shouldButtonsBeInteractable = !(isShowingOptions && optionsAsOverlay);
+            // If options is an overlay, disable main menu buttons
+            if (optionsAsOverlay)
+            {
+                SetButtonsInteractable(false);
+            }
 
-            // Update the button states based on the calculated state
-            SetButtonsInteractable(shouldButtonsBeInteractable);
+            Debug.Log("Options opened, buttons interactable: " + !optionsAsOverlay);
         }
         else
         {
-            Debug.LogError("UIMickeyControl: Cannot toggle options - Options Canvas is not assigned.", this);
+            Debug.LogError("UIMickeyControl: Cannot open options - Options Canvas is not assigned.", this);
+        }
+    }
+
+    /// <summary>
+    /// Closes the options canvas and re-enables main menu buttons.
+    /// Called by UIMickeyOptions when the close button is clicked.
+    /// </summary>
+    public void CloseOptions()
+    {
+        if (optionsCanvas != null)
+        {
+            optionsCanvas.SetActive(false);
+
+            // Re-enable main menu buttons
+            SetButtonsInteractable(true);
+
+            Debug.Log("Options closed from UIMickeyControl, buttons interactable: true");
         }
     }
 
@@ -218,13 +248,16 @@ public class UIMickeyControl : MonoBehaviour
         foreach (var button in menuButtons)
         {
             if (button != null)
+            {
                 button.interactable = state;
+                Debug.Log($"Button '{button.name}' interactable set to: {state}");
+            }
         }
     }
 
-    /// <summary>
+
     /// Quits the application or stops play mode in the editor.
-    /// </summary>
+
     private void QuitGame()
     {
         Debug.Log("UIMickeyControl: QuitGame called.");
