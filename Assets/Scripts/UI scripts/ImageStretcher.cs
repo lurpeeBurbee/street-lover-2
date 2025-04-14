@@ -70,7 +70,7 @@ public class ImageStretcher : MonoBehaviour
         {
             if (rectTransform != null)
             {
-                totalHeight += rectTransform.sizeDelta.y;
+                totalHeight += rectTransform.sizeDelta.y; // Sum up the heights
             }
         }
 
@@ -98,9 +98,9 @@ public class ImageStretcher : MonoBehaviour
             // Snap vertical borders
             if (snapVertical)
             {
-                float halfHeight = newSize.y / 2f;
+                float halfHeight = newSize.y / 2f; // Calculate half the height
                 currentYPosition -= halfHeight; // Move down by half the height
-                rectTransform.localPosition = new Vector3(0, currentYPosition, rectTransform.localPosition.z);
+                rectTransform.localPosition = new Vector3(0, currentYPosition, rectTransform.localPosition.z); // Set new position
                 currentYPosition -= halfHeight; // Move down by the other half
             }
 
