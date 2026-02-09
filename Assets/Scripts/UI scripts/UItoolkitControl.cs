@@ -1,62 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UItoolkitControl : MonoBehaviour
 {
+    [SerializeField] private UIDocument uiDocument;
+    private VisualElement mainInfo;
 
-    [SerializeField] UIDocument UiDocument;
-    int iterationnumber = 0;
+    // Cache the list of icons to avoid the Repaint error
+    private List<VisualElement> barrelIcons = new List<VisualElement>();
+    private int collectionCount = 0;
 
-    [SerializeField] float infoVisibilityTime, infoVisibilityMaxTime, infoVisibilityMultiplier;
-    IEnumerator ShowInfoScreen(VisualElement element)
+    void OnEnable()
     {
-        while (infoVisibilityTime < infoVisibilityMaxTime)
+        var root = uiDocument.rootVisualElement;
+
+        // Find the container and immediately hide all children logic-side
+        var itemsContainer = root.Q<VisualElement>("Items");
+        if (itemsContainer != null)
         {
-           element.ElementAt(0).style.display = DisplayStyle.Flex;
-            yield return new WaitForSeconds(0.1f);
-            infoVisibilityTime += infoVisibilityMultiplier * Time.deltaTime;
-        }
-        element.ElementAt(0).style.display = DisplayStyle.None;
-        infoVisibilityTime = 0;
-        yield break;
-    }
-   public void BarrelControl()
-    {
- VisualElement rootElement = UiDocument.rootVisualElement.ElementAt(0);
-        foreach (VisualElement childElement in rootElement.Children())
-        {
-            if (childElement.name == "header")
+            foreach (var child in itemsContainer.Children())
             {
-                Debug.Log(childElement.name);
-                foreach (VisualElement childElement2 in childElement.Children()) {
-                    Debug.Log(childElement2.name);
-                   if(childElement2.name == "Items")
-                    {
-                        foreach(VisualElement childElement3 in childElement2.Children())
-                        {
-                            if(childElement3.GetType() == typeof(IMGUIContainer))
-                            {
-
-                                childElement2.ElementAt(iterationnumber).style.display = DisplayStyle.Flex;
-                                iterationnumber++;
-                                break;
-                            }
-                            
-                        }
-                    }
-                }
-
+                barrelIcons.Add(child);
+                child.style.display = DisplayStyle.None; // Start hidden
             }
-            if(childElement.name == "main" && childElement.ElementAt(0).style.display != DisplayStyle.Flex)
-                StartCoroutine(ShowInfoScreen(childElement));
-        
+        }
+
+        mainInfo = root.Q<VisualElement>("main");
+        if (mainInfo != null) mainInfo.style.display = DisplayStyle.None;
+    }
+
+    public void BarrelControl()
+    {
+        // 1. Show the specific icon from our cached list
+        if (collectionCount < barrelIcons.Count)
+        {
+            barrelIcons[collectionCount].style.display = DisplayStyle.Flex;
+            collectionCount++;
+        }
+
+        // 2. Info Screen logic
+        if (mainInfo != null && mainInfo.style.display != DisplayStyle.Flex)
+        {
+            StopAllCoroutines(); // Reset if clicking fast
+            StartCoroutine(ShowInfoScreen());
         }
     }
 
-
-
-
+    IEnumerator ShowInfoScreen()
+    {
+        mainInfo.style.display = DisplayStyle.Flex;
+        yield return new WaitForSeconds(1.5f);
+        mainInfo.style.display = DisplayStyle.None;
+    }
 }

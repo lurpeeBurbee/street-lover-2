@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class BarrelCollector : MonoBehaviour
@@ -15,14 +14,5 @@ public class BarrelCollector : MonoBehaviour
             collision.gameObject.SetActive(false);  
         }
     }
-    void Start()
-    {
-        
-    }
 
-
-    void Update()
-    {
-        
-    }
 }

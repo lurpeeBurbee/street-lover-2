@@ -18,7 +18,7 @@ public class PlayerMovement4D_pickle : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
-        rb.gravityScale = 0; // Set gravity to zero
+        rb.gravityScale = 1; // Set gravity to zero
     }
 
     private void Update()
