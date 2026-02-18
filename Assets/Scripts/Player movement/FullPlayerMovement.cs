@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Automatically adds these components if they are missing. Safety first!
+// Automatically adds these components if they are missing.
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class FullPlayerMovement : MonoBehaviour
 {
     [Header("Input Actions")]
-    [Tooltip("Bind a 1D Axis (A/D or Left/Right Arrows)")]
+    [Tooltip("Bind a 1D Axis - Negative and Positive (A/D or Left/Right Arrows)")]
     public InputAction moveAction;
     [Tooltip("Bind a Button (Spacebar/South Gamepad Button)")]
     public InputAction jumpAction;
@@ -17,20 +17,28 @@ public class FullPlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 12f;
+    private bool facingRight = true;
 
     [Header("Ground Detection")]
     [SerializeField] private Transform groundCheckPoint;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Visual Feedback")]
+    [SerializeField] private SpriteRenderer groundIndicatorRenderer;
+    [SerializeField] private Color groundedColor = Color.green;
+    [SerializeField] private Color airColor = Color.red;
+
     [Header("Combat Settings")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
 
+
+
     private Rigidbody2D rb;
     private float moveInput;
 
-    private void Awake()
+    private void Awake() // Why Awake? Because we want to set up our Rigidbody constraints and find the Ground layer before any other scripts might try to interact with this player.
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -38,7 +46,7 @@ public class FullPlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         // This runs EVERY time you press Play
-        if (groundLayer == 0)
+        if (groundLayer == 0) // Check if the groundLayer was not set in the Inspector (default value is 0)
         {
             groundLayer = LayerMask.GetMask("Ground");
             Debug.Log("Gameplay Start: Automatically found and set Ground Layer.");
@@ -77,6 +85,23 @@ public class FullPlayerMovement : MonoBehaviour
     {
         // Read the horizontal movement continuously (e.g., -1 for left, 1 for right)
         moveInput = moveAction.ReadValue<float>();
+
+        // Update the visual indicator color based on ground state
+        if (groundIndicatorRenderer != null)
+        {
+            // Ternary operator: If grounded, use groundedColor; otherwise, use airColor.
+            groundIndicatorRenderer.color = IsGrounded() ? groundedColor : airColor; 
+        }
+        // Check if we need to flip the character based on movement
+        if (moveInput > 0 && !facingRight) 
+        {
+            Flip();
+        }
+        else if (moveInput < 0 && facingRight)
+        {
+            Flip();
+        }
+
     }
 
     private void FixedUpdate()
@@ -98,13 +123,13 @@ public class FullPlayerMovement : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            // Experiment here: instantiate the bullet and let the bullet's own script handle its speed
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Debug.Log("Pew pew!");
-        }
-        else
-        {
-            Debug.LogWarning("Missing Bullet Prefab or Fire Point!");
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+            // Get the script on the bullet and call the Launch function
+            if (bullet.TryGetComponent(out AmmoMove ammo))
+            {
+                ammo.Launch(facingRight);
+            }
         }
     }
 
@@ -126,6 +151,16 @@ public class FullPlayerMovement : MonoBehaviour
         }
     }
 
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing
+        facingRight = !facingRight;
+
+        // Multiply the player's x local scale by -1
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 
 
 }
