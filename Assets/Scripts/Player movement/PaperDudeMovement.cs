@@ -1,46 +1,66 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PaperDudeMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Speed of the player's movement
-    public Rigidbody2D rb; // Reference to the Rigidbody2D component
-    [SerializeField] private SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 5f;
 
-    private bool facingRight = true; // Flag to check if the player is facing right
+    public Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-    void Start()
+    private InputAction moveAction;
+    private float moveInput;
+    private bool facingRight = true;
+
+    private void Awake()
     {
-        if (rb == null)
+        // Cache references early to prevent OnEnable race conditions
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        if (moveAction == null)
         {
-            rb = GetComponent<Rigidbody2D>();
+            moveAction = new InputAction("Move", InputActionType.Value);
+
+            // These strings are recognized universally by the Input System Package
+            moveAction.AddCompositeBinding("1DAxis")
+                .With("Negative", "<Keyboard>/a")
+                .With("Negative", "<Keyboard>/leftArrow")
+                .With("Positive", "<Keyboard>/d")
+                .With("Positive", "<Keyboard>/rightArrow");
         }
 
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
+        moveAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Crucial for Mac/Linux: Stop movement if the script is disabled 
+        // or the game loses focus to prevent "Runaway Dude" bugs.
+        moveInput = 0;
+        if (moveAction != null)
+            moveAction.Disable();
     }
 
     void Update()
     {
-        // Handle horizontal movement
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y * Time.deltaTime);
+        // ReadValue is safe across all desktop OS architectures
+        moveInput = moveAction.ReadValue<float>();
 
-        // Flip the sprite based on horizontal movement direction
-        if (moveInput > 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (moveInput < 0 && facingRight)
-        {
-            Flip();
-        }
+        // Unity 6.4 uses linearVelocity. On Mac/Linux builds, 
+        // this is highly optimized in the physics engine.
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        if (moveInput > 0 && !facingRight) Flip();
+        else if (moveInput < 0 && facingRight) Flip();
     }
 
     private void Flip()
     {
-        // Flip the sprite by inverting the X scale
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

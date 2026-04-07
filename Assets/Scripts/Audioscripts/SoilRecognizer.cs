@@ -1,32 +1,35 @@
 using UnityEngine;
 
+// 1. SACRED PATH: Automatically adds PlaySoundFromEvent if it's missing. No need to do it in Start().
+[RequireComponent(typeof(PlaySoundFromEvent))]
 public class SoilRecognizer : MonoBehaviour
 {
-    public Transform playerFeet; // Position to check for the layer under the player's feet
-    public float checkRadius = 0.1f; // Radius of the check area
-    public LayerMask groundLayerMask; // Layer mask to filter ground layers
+    [Header("Detection Settings")]
+    public Transform playerFeet;
+    public float checkRadius = 0.1f;
+    public LayerMask groundLayerMask;
 
-    [System.Serializable] 
-    
-    // Class to hold layer name and corresponding audio clip  
-    public class LayerAudioPair
+    [Header("Audio Mapping")]
+    public LayerAudioPair[] layerAudioPairs;
+
+    [Header("Debug")]
+    public bool showDebugLogs = false; // Toggle this in inspector to stop console spam
+
+    // 2. Structs are generally lighter on memory than classes for simple data pairs like this
+    [System.Serializable]
+    public struct LayerAudioPair
     {
         public string layerName;
         public AudioClip audioClip;
     }
 
-    public LayerAudioPair[] layerAudioPairs; // List of layer names and corresponding audio clips
-
     private PlaySoundFromEvent playSoundFromEvent;
-    private string currentLayerName;
+    private int currentLayerInt = -1; // Cache the layer integer for fast frame-by-frame checking. -1 means "no layer detected"
 
     void Start()
     {
+        // Guaranteed to exist because of [RequireComponent]
         playSoundFromEvent = GetComponent<PlaySoundFromEvent>();
-        if (playSoundFromEvent == null)
-        {
-            playSoundFromEvent = gameObject.AddComponent<PlaySoundFromEvent>();
-        }
     }
 
     void Update()
@@ -36,21 +39,29 @@ public class SoilRecognizer : MonoBehaviour
 
     void CheckLayerUnderFeet()
     {
-        Debug.Log($"Checking layer under feet at position: {playerFeet.position} with radius: {checkRadius}");
-        Collider2D hit = Physics2D.OverlapCircle(playerFeet.position, checkRadius, groundLayerMask);
-        if (hit != null)
+        // 3. HOT PATH: Replaced the 'fat' circle with a perfectly thin Raycast pointing straight down
+        RaycastHit2D hit = Physics2D.Raycast(playerFeet.position, Vector2.down, checkRadius, groundLayerMask);
+
+        if (hit.collider != null)
         {
-            string layerName = LayerMask.LayerToName(hit.gameObject.layer);
-            Debug.Log($"Detected layer: {layerName}"); // Debug log to check detected layer
-            if (layerName != currentLayerName)
+            // 4. MEMORY MAP: Check the integer first.
+            if (hit.collider.gameObject.layer != currentLayerInt)
             {
-                currentLayerName = layerName;
-                SwitchAudioClip(layerName);
+                currentLayerInt = hit.collider.gameObject.layer;
+                string newLayerName = LayerMask.LayerToName(currentLayerInt);
+
+                if (showDebugLogs) Debug.Log($"Detected new soil layer: {newLayerName}");
+
+                SwitchAudioClip(newLayerName);
             }
         }
         else
         {
-            Debug.Log("No layer detected"); // Debug log when no layer is detected
+            if (currentLayerInt != -1)
+            {
+                currentLayerInt = -1;
+                if (showDebugLogs) Debug.Log("No layer detected (In Air)");
+            }
         }
     }
 
@@ -61,8 +72,8 @@ public class SoilRecognizer : MonoBehaviour
             if (pair.layerName == layerName)
             {
                 playSoundFromEvent.soundClip = pair.audioClip;
-                Debug.Log($"Switched audio clip to: {pair.audioClip.name} for layer: {layerName}"); // Debug log for switching audio clip
-                break;
+                if (showDebugLogs) Debug.Log($"Switched audio to: {pair.audioClip.name} for {layerName}");
+                break; // 6. Stop looping once we find the match to save CPU cycles
             }
         }
     }
@@ -72,7 +83,8 @@ public class SoilRecognizer : MonoBehaviour
         if (playerFeet != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(playerFeet.position, checkRadius);
+            // Draw a line to accurately visualize the raycast
+            Gizmos.DrawLine(playerFeet.position, playerFeet.position + Vector3.down * checkRadius);
         }
     }
 }

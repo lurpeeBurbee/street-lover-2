@@ -1,11 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PaperDudeMovement))]
 public class PaperDudeAnimation : MonoBehaviour
 {
     [SerializeField] private Animator animator; // Reference to the Animator component
     [SerializeField] private PaperDudeMovement paperDudeMovement; // Reference to the PaperDudeMovement script
 
-    void Start()
+    void Start() 
     {
         if (animator == null)
         {

@@ -22,7 +22,7 @@ namespace Meryel.UnityCodeAssist.Editor.Logger
 
         static DomainHashEnricher()
         {
-            var guid = UnityEditor.GUID.Generate();
+            var guid = UnityEngine.GUID.Generate();
             domainHash = guid.GetHashCode();
         }
 

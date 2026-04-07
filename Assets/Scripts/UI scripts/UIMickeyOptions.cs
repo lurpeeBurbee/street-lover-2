@@ -23,7 +23,7 @@ public class UIMickeyOptions : MonoBehaviour
         // If mainMenuController wasn't set, try to find it
         if (mainMenuController == null)
         {
-            mainMenuController = Object.FindFirstObjectByType<UIMickeyControl>();
+            mainMenuController = Object.FindAnyObjectByType<UIMickeyControl>();
             if (mainMenuController != null)
             {
                 Debug.Log("Found main menu controller");

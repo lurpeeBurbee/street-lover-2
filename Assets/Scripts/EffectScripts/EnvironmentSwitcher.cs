@@ -6,17 +6,16 @@ public class EnvironmentSwitcher : MonoBehaviour
 {
     [Header("BACKGROUND SETTINGS")]
     public Image backgroundImage;
-    public Sprite cityBackground;  // Left side
-    public Sprite forestBackground; // Right side
+    public Sprite cityBackground;
+    public Sprite forestBackground;
     public Color fadeColor = Color.black;
-    public float fadeSpeed = 1f;
 
     [Header("AUDIO SETTINGS")]
     public AudioSource cityAudio;
     public AudioSource forestAudio;
 
     [Header("TRIGGER SETTINGS")]
-    public LayerMask triggerLayer;
+    public string triggerTag = "Player"; // Much easier to read in the Inspector
     public bool debugVisuals = true;
 
     private bool isTransitioning;
@@ -26,133 +25,103 @@ public class EnvironmentSwitcher : MonoBehaviour
 
     private void Start()
     {
-        // Set initial state
         backgroundImage.color = Color.white;
-        backgroundImage.sprite = cityBackground; // Default to city
+        backgroundImage.sprite = cityBackground;
 
-        // Configure collider
-        GetComponent<Collider2D>().isTrigger = true;
+        GetComponent<Collider2D>().isTrigger = true; // Ensure the collider is set to trigger mode.
 
-        // Calculate trigger area properties
-        centerPosition = transform.position.x;
-        halfWidth = transform.localScale.x / 2;
+        centerPosition = transform.position.x; // Cache the center position for easy access during transitions
+        halfWidth = transform.localScale.x / 2f; // Assuming the trigger's width is determined by its localScale.x
 
-        // Initialize audio
         cityAudio.volume = 1f;
         forestAudio.volume = 0f;
     }
 
     private void Update()
     {
-        // Constant validation when player is in trigger area
         if (playerTransform != null)
         {
-            ValidateBackgroundPosition();
+            if (isTransitioning)
+            {
+                UpdateTransition(); // This is where the magic happens every frame while the player is within the trigger area
+            }
+            else
+            {
+                ValidateBackgroundPosition(); // This ensures that if the player teleports or moves quickly, the background and audio will still update correctly
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (((1 << other.gameObject.layer) & triggerLayer) != 0)
+        // Readable plain-English check
+        if (other.CompareTag(triggerTag))
         {
-            playerTransform = other.transform;
-            StartTransition();
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (((1 << other.gameObject.layer) & triggerLayer) != 0)
-        {
-            UpdateTransition();
+            playerTransform = other.transform; // Cache the player's transform for use in Update()
+            isTransitioning = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (((1 << other.gameObject.layer) & triggerLayer) != 0)
+        // Readable plain-English check
+        if (other.CompareTag(triggerTag))
         {
-            CompleteTransition();
-            playerTransform = null;
+            CompleteTransition(); // Finalize the transition immediately when the player leaves the trigger area
+            playerTransform = null; // We need to clear this so Update() doesn't try to access it after the player leaves
+        }
+    }
+
+    private void UpdateTransition()
+    {
+        float playerX = playerTransform.position.x; // Get the player's current X position
+        float distanceFromCenter = Mathf.Abs(playerX - centerPosition); // Calculate how far the player is from the center of the trigger area
+
+        float fadeAmount = Mathf.Clamp01(1f - (distanceFromCenter / halfWidth)); // This gives us a value between 0 and 1 that represents how close the player is to the center of the trigger area.
+                                                                                 // The closer they are, the higher the fadeAmount.
+        backgroundImage.color = Color.Lerp(Color.white, fadeColor, fadeAmount); // Lerp the background color from white to the fadeColor based on the fadeAmount.
+                                                                                // When fadeAmount is 1, the background will be fully faded; when it's 0, it will be fully white.
+
+        float normalizedPos = Mathf.Clamp01((playerX - (centerPosition - halfWidth)) / (halfWidth * 2f)); // This gives us a value between 0 and 1 that represents the player's position within the trigger area.
+                                                                                                          // When the player is at the left edge, normalizedPos will be 0; when they're at the right edge, it will be 1.
+
+        cityAudio.volume = 1f - normalizedPos; // As the player moves from left to right, the city audio will fade out (1 to 0) and the forest audio will fade in (0 to 1).
+        forestAudio.volume = normalizedPos; // This creates a smooth crossfade between the two audio sources as the player moves through the trigger area.
+
+        bool shouldBeForest = playerX > centerPosition; // This is a simple check to determine which background sprite should be active based on whether the player is on the left or right side of the center position.
+        Sprite targetSprite = shouldBeForest ? forestBackground : cityBackground; // This is a concise way to select the target sprite based on the player's position.
+                                                                                  // If shouldBeForest is true, we use the forestBackground; otherwise, we use the cityBackground.
+
+        if (backgroundImage.sprite != targetSprite)
+        {
+            backgroundImage.sprite = targetSprite;
         }
     }
 
     private void ValidateBackgroundPosition()
     {
         float playerX = playerTransform.position.x;
-        bool shouldBeForest = playerX > centerPosition;
+        bool shouldBeForest = playerX > centerPosition; // This is the same check we use in UpdateTransition to determine which background should be active based on the player's position.
+        Sprite targetSprite = shouldBeForest ? forestBackground : cityBackground; 
 
-        // Immediate correction if wrong background is shown
-        if (shouldBeForest && backgroundImage.sprite != forestBackground && !isTransitioning)
+        if (backgroundImage.sprite != targetSprite)
         {
-            backgroundImage.sprite = forestBackground;
-            cityAudio.volume = 0f;
-            forestAudio.volume = 1f;
+            backgroundImage.sprite = targetSprite;
         }
-        else if (!shouldBeForest && backgroundImage.sprite != cityBackground && !isTransitioning)
-        {
-            backgroundImage.sprite = cityBackground;
-            cityAudio.volume = 1f;
-            forestAudio.volume = 0f;
-        }
-    }
-
-    private void StartTransition()
-    {
-        if (isTransitioning) return;
-        isTransitioning = true;
-    }
-
-    private void UpdateTransition()
-    {
-        if (!isTransitioning || playerTransform == null) return;
-
-        float playerX = playerTransform.position.x;
-        float distanceFromCenter = Mathf.Abs(playerX - centerPosition);
-        float fadeAmount = 1 - (distanceFromCenter / halfWidth);
-
-        // Apply fade to black at center
-        backgroundImage.color = Color.Lerp(Color.white, fadeColor, fadeAmount);
-
-        // Switch background at full black (center point)
-        if (fadeAmount >= 0.99f)
-        {
-            bool shouldBeForest = playerX > centerPosition;
-            backgroundImage.sprite = shouldBeForest ? forestBackground : cityBackground;
-
-            // Audio cut (as requested)
-            cityAudio.volume = shouldBeForest ? 0f : 1f;
-            forestAudio.volume = shouldBeForest ? 1f : 0f;
-        }
+        if (cityAudio != null) cityAudio.volume = shouldBeForest ? 0f : 1f; // This ensures that if the player teleports or moves quickly, the audio will still update correctly based on their position relative to the center of the trigger area.
+        if (forestAudio != null) forestAudio.volume = shouldBeForest ? 1f : 0f;
     }
 
     private void CompleteTransition()
     {
-        if (!isTransitioning) return;
-
-        backgroundImage.color = Color.white;
         isTransitioning = false;
+        backgroundImage.color = Color.white; // Reset the background color to white immediately when the player leaves the trigger area.
 
-        // Final validation
         if (playerTransform != null)
         {
-            ValidateBackgroundPosition();
+            ValidateBackgroundPosition(); // This ensures that when the player leaves the trigger area, the background and audio will immediately snap to the correct state based on their final position relative to the center of the trigger area.
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        if (!debugVisuals) return;
 
-        Gizmos.color = new Color(0, 1, 0, 0.3f);
-        Gizmos.DrawCube(transform.position, transform.localScale);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
-
-        // Draw center line
-        Gizmos.color = Color.red;
-        Vector3 centerLineStart = transform.position + Vector3.up * transform.localScale.y / 2;
-        Vector3 centerLineEnd = transform.position + Vector3.down * transform.localScale.y / 2;
-        Gizmos.DrawLine(centerLineStart, centerLineEnd);
-    }
 }
