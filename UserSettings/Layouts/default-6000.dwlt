@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2194.286
     height: 1169.143
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 394}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 1564
+  controlID: 167
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 1565
+  controlID: 168
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 1571
+  controlID: 66
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 1572
+  controlID: 67
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1573
+  controlID: 68
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 521.1429
     height: 521.7143
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1662
+  controlID: 79
   draggingID: 0
 --- !u!114 &14
 MonoBehaviour:
@@ -401,8 +401,8 @@ MonoBehaviour:
     y: 0
     width: 600.5714
     height: 1113.1428
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -821,13 +821,12 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: -21406
+      - m_Data: 53822
       m_LastClickedID:
-        m_Data: -21406
+        m_Data: 53822
       m_ExpandedIDs:
-      - m_Data: -5566
-      - m_Data: -4446
-      - m_Data: -3170
+      - m_Data: -1386
+      - m_Data: 53822
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1629,7 +1628,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.unity.render-pipelines.universal/Runtime/Materials
+    - Assets/Scripts/TimeScripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1639,49 +1638,43 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Packages/com.unity.render-pipelines.universal/Runtime/Materials
+  - Assets/Scripts/TimeScripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Projects\Game projects\School games\street-lover-2
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1374.5715}
+    scrollPos: {x: 0, y: 206.57147}
     m_SelectedIDs:
-    - m_Data: 57408
+    - m_Data: 54666
     m_LastClickedID:
-      m_Data: 57408
+      m_Data: 54666
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 54442
-    - m_Data: 54444
-    - m_Data: 54446
-    - m_Data: 54448
-    - m_Data: 54450
-    - m_Data: 54452
-    - m_Data: 54454
-    - m_Data: 54456
-    - m_Data: 54458
-    - m_Data: 54460
-    - m_Data: 54462
-    - m_Data: 54464
-    - m_Data: 54466
-    - m_Data: 54468
-    - m_Data: 54470
-    - m_Data: 54472
-    - m_Data: 54474
-    - m_Data: 54476
-    - m_Data: 54478
-    - m_Data: 54480
-    - m_Data: 54482
-    - m_Data: 54484
-    - m_Data: 54486
-    - m_Data: 54488
-    - m_Data: 54490
-    - m_Data: 54634
-    - m_Data: 57410
+    - m_Data: 53938
+    - m_Data: 53940
+    - m_Data: 53944
+    - m_Data: 53946
+    - m_Data: 53948
+    - m_Data: 53950
+    - m_Data: 53952
+    - m_Data: 53954
+    - m_Data: 53956
+    - m_Data: 53958
+    - m_Data: 53960
+    - m_Data: 53962
+    - m_Data: 53964
+    - m_Data: 53966
+    - m_Data: 53968
+    - m_Data: 53970
+    - m_Data: 53972
+    - m_Data: 53974
+    - m_Data: 53980
+    - m_Data: 53982
+    - m_Data: 53986
+    - m_Data: 54408
     - m_Data: 1000000000
-    - m_Data: 2147483647
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1715,32 +1708,33 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 54442
-    - m_Data: 54444
-    - m_Data: 54446
-    - m_Data: 54448
-    - m_Data: 54450
-    - m_Data: 54452
-    - m_Data: 54454
-    - m_Data: 54456
-    - m_Data: 54458
-    - m_Data: 54460
-    - m_Data: 54462
-    - m_Data: 54464
-    - m_Data: 54466
-    - m_Data: 54468
-    - m_Data: 54470
-    - m_Data: 54472
-    - m_Data: 54474
-    - m_Data: 54476
-    - m_Data: 54478
-    - m_Data: 54480
-    - m_Data: 54482
-    - m_Data: 54484
-    - m_Data: 54486
-    - m_Data: 54488
-    - m_Data: 54490
-    - m_Data: 1000000000
+    - m_Data: 53938
+    - m_Data: 53940
+    - m_Data: 53942
+    - m_Data: 53944
+    - m_Data: 53946
+    - m_Data: 53948
+    - m_Data: 53950
+    - m_Data: 53952
+    - m_Data: 53954
+    - m_Data: 53956
+    - m_Data: 53958
+    - m_Data: 53960
+    - m_Data: 53962
+    - m_Data: 53964
+    - m_Data: 53966
+    - m_Data: 53968
+    - m_Data: 53970
+    - m_Data: 53972
+    - m_Data: 53974
+    - m_Data: 53976
+    - m_Data: 53978
+    - m_Data: 53980
+    - m_Data: 53982
+    - m_Data: 53984
+    - m_Data: 53986
+    - m_Data: 53988
+    - m_Data: 53990
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1769,9 +1763,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -21406
+    - m_Data: 53822
     m_LastClickedEntityId:
-      m_Data: -21406
+      m_Data: 53822
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 46246
@@ -1789,8 +1783,8 @@ MonoBehaviour:
     - m_Data: 56088
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: DraggableTime_template
+      m_OriginalName: DraggableTime_template
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -1798,10 +1792,10 @@ MonoBehaviour:
         width: 0
         height: 0
       m_UserData:
-        m_Data: 0
+        m_Data: 55054
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 14}
@@ -1858,7 +1852,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_Data: -21406
+    m_Data: 0
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52

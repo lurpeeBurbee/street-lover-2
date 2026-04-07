@@ -124,7 +124,6 @@ public class DraggableTimer : MonoBehaviour
                 if (childParticles != null) childParticles.Play();
                 particlesPlaying = true;
             }
-
         }
 
         // 4. THE MOVEMENT: Replaces OnMouseDrag
@@ -151,8 +150,8 @@ public class DraggableTimer : MonoBehaviour
             ? $"Time Remaining: {Mathf.Max(0, countdown):F1}s"
             : "Pick up the block to start the timer.";
 
-        string globalText = $"Time.time (App Start): {Time.time:F1}s";
-        string sceneText = $"Time.timeSinceLevelLoad (Scene Start): {Time.timeSinceLevelLoad:F1}s";
+        string globalText = $"Time.time (App Start): {Time.time:F1}s";// "F1" formats the float to one decimal place for cleaner display
+        string sceneText = $"Time.timeSinceLevelLoad (Scene Start): {Time.timeSinceLevelLoad:F1}s"; 
 
         GUI.Label(new Rect(20, 20, 400, 40), timerText, style);
 
@@ -161,8 +160,8 @@ public class DraggableTimer : MonoBehaviour
             GUI.Label(new Rect(20, 60, 400, 40), $"Started at (App): {absoluteStartTime:F1}s", style);
             GUI.Label(new Rect(20, 100, 400, 40), $"Started at (Scene): {sceneStartTime:F1}s", style);
         }
-
-        GUI.Label(new Rect(20, Screen.height - 80, 400, 40), globalText, style);
+        // These two lines are just for educational purposes to show the difference between the two time systems in Unity. They can be removed in a final game build.
+        GUI.Label(new Rect(20, Screen.height - 80, 400, 40), globalText, style); // y starts from the top, so we subtract from Screen.height to position it near the bottom
         GUI.Label(new Rect(20, Screen.height - 40, 400, 40), sceneText, style);
     }
 

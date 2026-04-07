@@ -457,21 +457,13 @@ MonoBehaviour:
     m_Name: Click
     m_Type: 1
     m_ExpectedControlType: 
-    m_Id: 95f1f16d-586a-4c0a-a37d-fad44651efb3
+    m_Id: a05b1da6-2ec8-4f3a-b2f2-50f3621927f2
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 28a253da-6fb9-48fc-a90d-e326ffdd5598
+      m_Id: 86070fc5-a1da-4359-b9e4-47fc23ea31b3
       m_Path: <Pointer>/press
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Click
-      m_Flags: 0
-    - m_Name: 
-      m_Id: c0afb93c-8178-437e-9134-87589249de79
-      m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -482,28 +474,20 @@ MonoBehaviour:
     m_Name: Position
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 95ddafb8-5b3f-4430-8ec7-dbe2180761f5
+    m_Id: 31d4b623-ddf8-4855-926e-3e1d55439745
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: da3d2f23-5479-4673-a4cc-f26c7b5fa724
+      m_Id: 2697a203-a013-4dc6-97b3-695bd3fbd396
       m_Path: <Pointer>/position
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Position
       m_Flags: 0
-    - m_Name: 
-      m_Id: 96512b53-cf9a-4896-aa27-5d8c7ee074f9
-      m_Path: <Mouse>/delta/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Position
-      m_Flags: 0
     m_Flags: 0
-  timeLimit: 5
+  timeLimit: 3
   rageStartTime: 0.5
 --- !u!1 &1803207159
 GameObject:
