@@ -457,12 +457,12 @@ MonoBehaviour:
     m_Name: Click
     m_Type: 1
     m_ExpectedControlType: 
-    m_Id: a05b1da6-2ec8-4f3a-b2f2-50f3621927f2
+    m_Id: fa53e1e9-920f-4805-a24f-58e2460255e4
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 86070fc5-a1da-4359-b9e4-47fc23ea31b3
+      m_Id: 5734cfa3-4489-4d1e-912d-a33183215ae6
       m_Path: <Pointer>/press
       m_Interactions: 
       m_Processors: 
@@ -474,12 +474,12 @@ MonoBehaviour:
     m_Name: Position
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 31d4b623-ddf8-4855-926e-3e1d55439745
+    m_Id: 79220429-432a-4489-ad10-9a65667af27a
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 2697a203-a013-4dc6-97b3-695bd3fbd396
+      m_Id: 4f3fce2d-4e86-4976-a26e-bb18bd777075
       m_Path: <Pointer>/position
       m_Interactions: 
       m_Processors: 

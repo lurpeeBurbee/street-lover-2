@@ -19,7 +19,7 @@ public class DraggableTimer : MonoBehaviour
     private float absoluteStartTime; // Time.time when the timer starts
     private float sceneStartTime; // Time.timeSinceLevelLoad when the timer starts
 
-    private Camera mainCam;
+    private Camera mainCam; // Cached reference to the main camera for coordinate conversions. We get this automatically in Start() so it works even if the camera isn't tagged as "MainCamera", but caching it here means we don't have to call Camera.main repeatedly, which is more efficient.
     private Vector3 offset;
     private Collider2D col;
     private SpriteRenderer sr; // NEW: Cached visual component
@@ -61,7 +61,7 @@ public class DraggableTimer : MonoBehaviour
     private void OnEnable()
     {
         // 1. Enable and Subscribe
-        clickAction.Enable();
+        clickAction.Enable(); // 
         positionAction.Enable();
         clickAction.started += OnClickStarted;
         clickAction.canceled += OnClickCanceled;
@@ -86,7 +86,9 @@ public class DraggableTimer : MonoBehaviour
         if (col.OverlapPoint(worldPos))
         {
             isDragging = true;
-            offset = transform.position - worldPos; // Calculate the offset so the block doesn't snap to the pointer's center
+            offset = transform.position - worldPos; // Calculate the offset so the block doesn't snap to the pointer's center. If the block size is 100px x 100px and you click the top-left corner, this offset ensures that corner stays under the pointer instead of jumping to center on the block.
+            // Let's say transfom.position is (5, 5) and worldPos is (4, 4) at the moment of click. The offset becomes (1, 1). As you drag, if the pointer moves to (6, 6), the new position will be (6, 6) + (1, 1) = (7, 7), keeping that initial relative position consistent.
+            // No negative sign is needed here because we're calculating how much the block's position differs from the pointer's position at the start of the drag, and we want to maintain that difference as we move.
 
             if (!isTimerRunning) // We avoid restarting the timer if it's already running, allowing for multiple drags within the same timer session
             {
@@ -131,7 +133,7 @@ public class DraggableTimer : MonoBehaviour
         {
             Vector2 screenPos = positionAction.ReadValue<Vector2>(); // Get the current pointer position every frame while dragging
             Vector3 newWorldPos = mainCam.ScreenToWorldPoint(screenPos) + offset; // Convert to world space and apply the initial offset
-            newWorldPos.z = 0f; // Keep it flat on the 2D plane
+            newWorldPos.z = 0f; // Keep it flat on the 2D plane§2
             transform.position = newWorldPos; // Move the block to follow the pointer
         }
     }
